@@ -1,0 +1,12 @@
+{
+    "name": "portfolio/dependence",
+    "require": {
+        "twig/twig": "^3.2"
+    },
+    "authors": [
+        {
+            "name": "Tristan",
+            "email": "54239325+MeillatTristan@users.noreply.github.com"
+        }
+    ]
+}
