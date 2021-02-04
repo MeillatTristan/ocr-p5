@@ -8,5 +8,11 @@
             "name": "Tristan",
             "email": "54239325+MeillatTristan@users.noreply.github.com"
         }
-    ]
+    ],
+    
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    }
 }
