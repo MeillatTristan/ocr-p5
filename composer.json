@@ -1,7 +1,8 @@
 {
     "name": "meillat/portfolio",
     "require": {
-        "twig/twig": "^3.2"
+        "twig/twig": "^3.2",
+        "twbs/bootstrap": "^4.6"
     },
     "authors": [
         {

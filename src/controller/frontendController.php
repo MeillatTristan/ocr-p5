@@ -31,4 +31,9 @@ class FrontendController
     {
         $this->renderer->render('homepage');
     }
+
+    public function PostsView()
+    {
+        $this->renderer->render('posts');
+    }
 }
