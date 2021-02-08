@@ -1,5 +1,5 @@
 {
-    "name": "portfolio/dependence",
+    "name": "meillat/portfolio",
     "require": {
         "twig/twig": "^3.2"
     },
