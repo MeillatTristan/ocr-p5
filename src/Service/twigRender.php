@@ -14,7 +14,7 @@ class TwigRender
      */
     public function render($view, $prams = [])
     {
-        $loader = new \Twig\Loader\FilesystemLoader('view');
+        $loader = new \Twig\Loader\FilesystemLoader('public/view');
         $this->twig = new \Twig\Environment($loader, [
             'cache' => false, // __DIR__ . /tmp',
             'debug' => true,
