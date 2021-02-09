@@ -18,8 +18,75 @@
   <div class="containerPictureProfil">
     <img src="public/assets/images/pictureProfilModified.png" alt="">
   </div>
-  
-
 </div>
+<div class="containerDescription">
+    <div class="about">
+      <p class="cursive blue first"> &lt;body&gt;</p>
+      <div class="title">
+        <p class="cursive pink">&lt;h1&gt;</p>
+        <h2>A propos de moi</h2>
+        <p class="cursive pink">&lt;/h1&gt;</p>
+      </div>
+      <div class="containerContent">
+        <p>Je suis actuellement en formation Symfony chez OpenclassRooms afin d'en apprendre sur ma passion. J'aime expérimenté, découvrir de nouvelles technologies ainsi que de nouveaux horizons.</p>
+        <p>J'aime organisé mon travail, je suis ambitieux et j'aime tout donner pour atteindre mes objectifs. Je suis également passionné par la tech en général et par la NBA.</p>
+      </div>
+      <div class="cv">
+        <div class="title">
+          <p class="cursive pink">&lt;h1&gt;</p>
+          <div class="containerFile">
+            <a href="public/assets/cv/CV_MEILLAT_Tristan.pdf" download>Mon CV</a>
+          </div>
+          <p class="cursive pink">&lt;/h1&gt;</p>
+        </div>
+      </div>
+      <p class="cursive blue second"> &lt;body&gt;</p>
+    </div>
+    <div class="competence">
+      <h2>Mes compétences</h2>
+      <div class="iconCompetence">
+        <div class="containerImg">
+          <img src="public/assets/images/logo/html.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/css.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/php.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/sql.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/symfony.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/twig.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/wordpress.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/github.png" alt="">
+        </div>
+        <div class="containerImg">
+          <img src="public/assets/images/logo/figma.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="containerForm">
+    <form action="#" method="post">
+      <h2>Me contacter</h2>
+      <div class="containerName">
+        <input type="text" placeholder="Nom">
+        <input type="text" placeholder="Prénom">
+      </div>
+      <input type="mail" placeholder="Email">
+      <input type="text" placeholder="Téléphone" pattern="(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}">
+      <textarea name="message" id="message" placeholder="Votre message..." cols="30" rows="10"></textarea>
+      <input type="submit" placeholder="Envoyer">
+    </form>
+  </div>
 
 {% endblock %}
