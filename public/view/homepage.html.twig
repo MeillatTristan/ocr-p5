@@ -1,6 +1,6 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
@@ -33,11 +33,11 @@
       </div>
       <div class="cv">
         <div class="title">
-          <p class="cursive pink">&lt;h1&gt;</p>
+          <p class="cursive green">&lt;a&gt;</p>
           <div class="containerFile">
             <a href="public/assets/cv/CV_MEILLAT_Tristan.pdf" download>Mon CV</a>
           </div>
-          <p class="cursive pink">&lt;/h1&gt;</p>
+          <p class="cursive green">&lt;/a&gt;</p>
         </div>
       </div>
       <p class="cursive blue second"> &lt;body&gt;</p>
@@ -76,13 +76,13 @@
     </div>
   </div>
   <div class="containerForm">
-    <form action="#" method="post">
+    <form action="/portfolio" method="post">
       <h2>Me contacter</h2>
       <div class="containerName">
-        <input type="text" placeholder="Nom">
-        <input type="text" placeholder="Prénom">
+        <input type="text" name="nom" placeholder="Nom">
+        <input type="text" name="prenom" placeholder="Prénom">
       </div>
-      <input type="mail" placeholder="Email">
+      <input type="mail" name="email" placeholder="Email">
       <input type="text" placeholder="Téléphone" pattern="(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}">
       <textarea name="message" id="message" placeholder="Votre message..." cols="30" rows="10"></textarea>
       <input type="submit" placeholder="Envoyer">

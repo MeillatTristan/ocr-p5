@@ -1,0 +1,22 @@
+{% extends 'template.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+<div class="containerConnexion .inscription">
+  <div class="containerFormConnexion">
+    <h2>Inscription</h2>
+    <p class="required">Les champs requis sont marqués d'une *</p>
+    <form action="/portfolio/inscriptionRequest" method="post">
+      <input type="text" name="nom" placeholder="Nom*">
+      <input type="text" name="prenom" placeholder="Prénom*">
+      <input type="text" placeholder="Email*">
+      <input type="text" placeholder="Mot de passe*">
+      <input type="submit" value="Valider">
+    </form>
+    <p>Pas encore de compte ? <a href="/portfolio/inscription">Inscrivez vous maintenant</a></p>
+  </div>
+</div>
+
+{% endblock %}

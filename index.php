@@ -26,9 +26,12 @@ $router = new App\Router\Router($_GET['url']);
 // $homeController = HomeControllerRender();
 // $router->get('/', $homeController);
 
-// Homme and Deco
+// routes
 $router->get('/', 'frontend#homepageView');
 $router->get('/posts', 'frontend#PostsView');
+$router->post('/contactForm', 'frontend#sendmail');
+$router->get('/connexion', 'frontend#connexionView');
+$router->get('/inscription', 'frontend#inscriptionView');
 
 $router->get('/posts/:id', function($id){echo "afficher l'article " . $id; });
 $router->post('/posts/:id', function($id){echo "poster l'article " . $id; });

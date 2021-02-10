@@ -33,7 +33,7 @@ h2{
     color: #a26e84;
 }
 
-.cursor.green{
+.cursive.green{
     color: #479860;
 }
 
@@ -430,7 +430,7 @@ display: none;
 .containerForm input[type="submit"]{
     border: none;
     color: #479860;
-    width: 100px;
+    width: 120px;
     font-weight: 600;
     font-size: 20px;
     transition: 0.2s;
@@ -443,4 +443,91 @@ display: none;
     background: #479860;
     color: white;
     transition: 0.2s;
+}
+
+.containerConnexion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.containerFormConnexion{
+    background-color: #262629;
+    -webkit-box-shadow: 0px 0px 30px -4px#262629;
+    -moz-box-shadow: 0px 0px 30px -4px#262629;
+    box-shadow: 0px 0px 30px -4px#262629;
+    width: 600px;
+    padding: 30px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.containerFormConnexion h2{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.containerFormConnexion form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerFormConnexion form input{
+    width: 80%;
+    padding: 10px;
+    background-color:transparent;
+    color: white;
+    border: none;
+    border-bottom: solid 1px rgb(175, 175, 175);
+    margin-top: 20px;
+    font-family: "montserrat";
+    font-size: 17px;
+}
+
+.containerFormConnexion form input::placeholder, .containerFormConnexion form input[type='submit']::placeholder{
+    color: #58585f;
+    font-family: "montserrat";
+}
+
+.containerFormConnexion form input[type='submit']{
+    background-image: linear-gradient(to right top, #0d669b, #55669c, #7a6697, #93688e, #a26e84);
+    border: none;
+    height: 50px;
+    margin-top: 40px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.containerFormConnexion p{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.containerFormConnexion p a{
+    color: #0d669b;
+    font-weight: 500;
+}
+
+.containerFormConnexion p a:hover{
+    text-decoration: underline #0d669b;
+}
+
+.containerFormConnexion .required{
+    color: #58585f;
+}
+
+.inscription .containerFormConnexion{
+    height: 700px;
 }
