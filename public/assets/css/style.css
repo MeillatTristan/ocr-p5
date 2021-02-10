@@ -464,7 +464,7 @@ display: none;
     box-shadow: 0px 0px 30px -4px#262629;
     width: 600px;
     padding: 30px;
-    height: 500px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -526,8 +526,19 @@ display: none;
 
 .containerFormConnexion .required{
     color: #58585f;
+    margin-bottom: 20px;
 }
 
-.inscription .containerFormConnexion{
-    height: 700px;
+.containerFormConnexion .inscriptionTitle{
+    margin-bottom: 0px;
+}
+
+.containerFormConnexion .successMessage{
+    color: #479860;
+    margin-top: 5px;
+}
+
+.containerFormConnexion .successMessage{
+    color: #fc4d3c;
+    margin-top: 5px;
 }

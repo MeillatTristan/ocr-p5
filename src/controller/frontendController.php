@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controller;
-use App\Service\TwigRender;
 
+use App\Database\ConfigDatabase;
+use App\Service\TwigRender;
 
 class FrontendController
 {
@@ -12,11 +13,15 @@ class FrontendController
     private $postManager;
     private $commentManager;
     private $formManager;
+    private $databaseConnexion;
+    private $database;
 
     public function __construct()
     {
         // $this->verif = new FunctionValidator();
         $this->renderer = new TwigRender();
+        $this->databaseConnexion = new ConfigDatabase();
+        $this->database = $this->databaseConnexion->getConnexion();
         // $this->loginManager = new LoginAccountManager();
         // $this->postManager = new PostManager();
         // $this->commentManager = new CommentManager();
@@ -63,6 +68,41 @@ class FrontendController
     }
 
     public function inscriptionView(){
-        $this->renderer->render('inscription');
+        if(isset($_SESSION['successMessage'])){
+            if($_SESSION['successMessage'] == "y"){
+                $successMessage = "Votre inscription à bien été prise en compte, bienvenue !";
+                unset($_SESSION['successMessage']);
+                $this->renderer->render('inscription', ["successMessage" => $successMessage, "class" => "successMessage"]);
+            }
+            else if($_SESSION['successMessage'] == "n"){
+                $successMessage = 'Une erreur est survenu, veuillez réessayer.';
+                unset($_SESSION['successMessage']);
+                $this->renderer->render('inscription', ["successMessage" => $successMessage, "class" => "errorMessage"]);
+            }
+        }
+        else{
+            $this->renderer->render('inscription');
+        }
+        
+    }
+
+    public function inscriptionRequest(){
+        $name = $_POST['nom'];
+        $firstname = $_POST['prenom'];
+        $mail = $_POST['mail'];
+        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
+        $request = $this->database->prepare("INSERT INTO users (firstname, name, mail, password) VALUES (:firstname, :name, :mail, :password)");
+        $params = [':firstname' => $firstname, ':name' => $name, ':mail' => $mail, ':password' => $password];
+        if($request->execute($params)){
+            $_SESSION['successMessage'] = "y";
+            header( "Location: /portfolio/inscription" );
+        }
+        else{
+            $_SESSION['successMessage'] = "n";
+            header( "Location: /portfolio/inscription" );
+            // $this->renderer->render('inscription', ['errorMessage' => 'Une erreur est survenu, veuillez réessayer.']);
+            // Votre inscription à bien été prise en compte, bienvenue !
+        }
     }
 }

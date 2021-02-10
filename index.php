@@ -32,6 +32,7 @@ $router->get('/posts', 'frontend#PostsView');
 $router->post('/contactForm', 'frontend#sendmail');
 $router->get('/connexion', 'frontend#connexionView');
 $router->get('/inscription', 'frontend#inscriptionView');
+$router->post('/inscriptionRequest', 'frontend#inscriptionRequest');
 
 $router->get('/posts/:id', function($id){echo "afficher l'article " . $id; });
 $router->post('/posts/:id', function($id){echo "poster l'article " . $id; });
