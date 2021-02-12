@@ -19,7 +19,7 @@ class TwigRender
             'cache' => false, // __DIR__ . /tmp',
             'debug' => true,
         ]);
-        if (isset($_SESSION['flash'])) {
+        if (isset($_SESSION['id'])) {
             $this->twig->addGlobal('session', $_SESSION);
         }
 

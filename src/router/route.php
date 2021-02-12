@@ -7,7 +7,7 @@ use App\controller\homeController;
 
 class Route{
 
-    private $path;
+    public $path;
     private $callable;
 
     public function __construct($path, $callable){

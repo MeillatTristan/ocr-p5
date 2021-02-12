@@ -7,9 +7,12 @@
 <div class="containerConnexion">
   <div class="containerFormConnexion">
     <h2>Connexion</h2>
-    <form action="/portfolio/conexionRequest" method="post">
-      <input type="text" name="mail" placeholder="Email">
-      <input type="text" name="password" placeholder="Mot de passe">
+     {% if successMessage is defined %}
+      <p class={{class}}>{{ successMessage }}</p>
+    {% endif %}
+    <form action="/portfolio/connexionRequest" method="post">
+      <input type="mail" name="mail" placeholder="Email">
+      <input type="password" name="password" placeholder="Mot de passe">
       <input type="submit" value="Valider">
     </form>
     <p>Pas encore de compte ? <a href="/portfolio/inscription">Inscrivez vous maintenant</a></p>

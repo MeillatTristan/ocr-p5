@@ -2,11 +2,6 @@
 
 require "vendor/autoload.php";
 
-use App\controller\homeController;
-
-use function App\controller\homeController\HomeControllerRender;
-
-
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
@@ -19,12 +14,10 @@ if (empty($_GET['url'])) {
 
 $router = new App\Router\Router($_GET['url']);
 
+
 // creating routes
 
-// $router->get('/', function(){ echo $twig->render('homepage.html.twig') ;});
 
-// $homeController = HomeControllerRender();
-// $router->get('/', $homeController);
 
 // routes
 $router->get('/', 'frontend#homepageView');
@@ -33,6 +26,8 @@ $router->post('/contactForm', 'frontend#sendmail');
 $router->get('/connexion', 'frontend#connexionView');
 $router->get('/inscription', 'frontend#inscriptionView');
 $router->post('/inscriptionRequest', 'frontend#inscriptionRequest');
+$router->post('/connexionRequest', 'frontend#connexionRequest');
+$router->post('/deconnexionRequest', 'frontend#deconnexionRequest');
 
 $router->get('/posts/:id', function($id){echo "afficher l'article " . $id; });
 $router->post('/posts/:id', function($id){echo "poster l'article " . $id; });

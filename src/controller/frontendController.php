@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Database\ConfigDatabase;
 use App\Service\TwigRender;
+use App\Model\UsersManager;
 
 class FrontendController
 {
@@ -20,9 +21,7 @@ class FrontendController
     {
         // $this->verif = new FunctionValidator();
         $this->renderer = new TwigRender();
-        $this->databaseConnexion = new ConfigDatabase();
-        $this->database = $this->databaseConnexion->getConnexion();
-        // $this->loginManager = new LoginAccountManager();
+        $this->usersManager = new UsersManager();
         // $this->postManager = new PostManager();
         // $this->commentManager = new CommentManager();
         // $this->formManager = new FormManager();
@@ -64,7 +63,40 @@ class FrontendController
     }
 
     public function connexionView(){
-        $this->renderer->render('connexion');
+        if(isset($_SESSION['successMessage'])){
+            if($_SESSION['successMessage'] == "n"){
+                $successMessage = "Un de vos identifiants est incorrect, veuillez réessayer";
+                unset($_SESSION['successMessage']);
+                $this->renderer->render('connexion', ["successMessage" => $successMessage, "class" => "errorMessage"]);
+            }
+            else{
+                unset($_SESSION['successMessage']);
+            }
+        }
+        else{
+            $this->renderer->render('connexion');
+        }
+    }
+
+    public function connexionRequest(){
+        $mail = $_REQUEST['mail'];
+        $passwordToVerify = $_REQUEST['password'];
+
+        $return = $this->usersManager->loginUser($mail, $passwordToVerify);
+        if($return[0] == "y"){
+            $_SESSION['id'] = $return[1];
+            header('Location: /portfolio');
+            return("");
+        }
+        else{
+            $_SESSION['successMessage'] = "n";
+        }
+        header('Location: /portfolio/connexion');
+    }
+
+    public function deconnexionRequest(){
+        unset($_SESSION['id']);
+        header('Location: /portfolio');
     }
 
     public function inscriptionView(){
@@ -73,6 +105,13 @@ class FrontendController
                 $successMessage = "Votre inscription à bien été prise en compte, bienvenue !";
                 unset($_SESSION['successMessage']);
                 $this->renderer->render('inscription', ["successMessage" => $successMessage, "class" => "successMessage"]);
+            }
+            else if(isset($_SESSION['successMessage'])){
+                if($_SESSION['successMessage'] == 'e'){
+                    $successMessage = "Cette addresse mail est déjà utilisé, désolé.";
+                    unset($_SESSION['successMessage']);
+                    $this->renderer->render('inscription', ["successMessage" => $successMessage, "class" => "errorMessage"]);
+                }
             }
             else if($_SESSION['successMessage'] == "n"){
                 $successMessage = 'Une erreur est survenu, veuillez réessayer.';
@@ -92,17 +131,16 @@ class FrontendController
         $mail = $_POST['mail'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-        $request = $this->database->prepare("INSERT INTO users (firstname, name, mail, password) VALUES (:firstname, :name, :mail, :password)");
-        $params = [':firstname' => $firstname, ':name' => $name, ':mail' => $mail, ':password' => $password];
-        if($request->execute($params)){
+        $return = $this->usersManager->createUser($name, $firstname, $mail, $password);
+        if($return == "y"){
             $_SESSION['successMessage'] = "y";
-            header( "Location: /portfolio/inscription" );
+        }
+        else if($return == 'e'){
+            $_SESSION['successMessage'] = "e";
         }
         else{
             $_SESSION['successMessage'] = "n";
-            header( "Location: /portfolio/inscription" );
-            // $this->renderer->render('inscription', ['errorMessage' => 'Une erreur est survenu, veuillez réessayer.']);
-            // Votre inscription à bien été prise en compte, bienvenue !
         }
+        header( "Location: /portfolio/inscription" );
     }
 }

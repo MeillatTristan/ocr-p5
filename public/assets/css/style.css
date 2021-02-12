@@ -408,7 +408,7 @@ display: none;
 
 .containerForm form .containerName input{
     width: 45%;
-
+    height: 50px;
 }
 
 .containerForm input, .containerForm textarea{
@@ -425,6 +425,7 @@ display: none;
 .containerForm input::placeholder, .containerForm textarea::placeholder{
     color: #58585f;
     font-family: "montserrat";
+    font-size: 18px;
 }
 
 .containerForm input[type="submit"]{
@@ -538,7 +539,7 @@ display: none;
     margin-top: 5px;
 }
 
-.containerFormConnexion .successMessage{
+.containerFormConnexion .errorMessage{
     color: #fc4d3c;
     margin-top: 5px;
 }

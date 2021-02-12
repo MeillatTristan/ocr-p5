@@ -24,7 +24,11 @@
         <li><a class="firstLink" href="/portfolio/">Accueil</a></li>
         <li><a class="secondLink" href="/portfolio/posts">News</a></li>
         <li><a class="thirdLink" href="#">Contact</a></li>
-        <li><a class="fourthLink" href="/portfolio/connexion">Connexion</a></li>
+        {% if session.id is defined %}
+          <li><a class="fourthLink" href="/portfolio/deconnexionRequest">Déconnexion</a></li>
+        {% else %}      
+          <li><a class="fourthLink" href="/portfolio/connexion">Connexion</a></li>
+        {% endif %}
       </ul>
     </nav>
   </header>

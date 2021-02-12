@@ -8,7 +8,7 @@ use App\controller\homeController;
 class Router {
 
     private $url;
-    private $routes = [];
+    public $routes = [];
     private $namedRoutes = [];
 
     public function __construct($url){
