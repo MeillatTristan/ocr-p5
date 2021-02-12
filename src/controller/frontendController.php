@@ -63,6 +63,10 @@ class FrontendController
     }
 
     public function connexionView(){
+        if(isset($_SESSION['id'])){
+            header('Location: /portfolio');
+            die();
+        }
         if(isset($_SESSION['successMessage'])){
             if($_SESSION['successMessage'] == "n"){
                 $successMessage = "Un de vos identifiants est incorrect, veuillez réessayer";
@@ -79,6 +83,10 @@ class FrontendController
     }
 
     public function connexionRequest(){
+        if(isset($_SESSION['id'])){
+            header('Location: /portfolio');
+            die();
+        }
         $mail = $_REQUEST['mail'];
         $passwordToVerify = $_REQUEST['password'];
 

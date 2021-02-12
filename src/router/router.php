@@ -3,16 +3,19 @@
 namespace App\router;
 
 use App\controller\homeController;
+use App\router\RouterException;
 
 
 class Router {
 
     private $url;
-    public $routes = [];
+    private $routes = [];
     private $namedRoutes = [];
+    private $routeException; 
 
     public function __construct($url){
         $this->url = $url;
+        $this->routeException = new RouterException;
     }
 
     public function get($path, $callable, $name = null){
@@ -37,14 +40,14 @@ class Router {
 
     public function run(){
         if(!isset($this->routes[$_SERVER['REQUEST_METHOD']])){
-            throw new RouterException('REQUEST_METHOD does not exist');
+            $this->routeException->error404();
         }
         foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route){
             if($route->match($this->url)){
                 return $route->call();
             }
         }
-        throw new RouterException('No matching routes');
+        $this->routeException->error404();
     }
 
     public function url($name, $params = []){
