@@ -2,10 +2,6 @@
 
 require "vendor/autoload.php";
 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
 // init routing
 
 if (empty($_GET['url'])) {
@@ -28,6 +24,8 @@ $router->get('/inscription', 'frontend#inscriptionView');
 $router->post('/inscriptionRequest', 'frontend#inscriptionRequest');
 $router->post('/connexionRequest', 'frontend#connexionRequest');
 $router->get('/deconnexion', 'frontend#deconnexionRequest');
+$router->get('/adminPosts', 'backend#adminPostsView');
+$router->get('/adminPostForm', 'backend#adminPostFormView');
 
 $router->get('/posts/:id', function($id){echo "afficher l'article " . $id; });
 $router->post('/posts/:id', function($id){echo "poster l'article " . $id; });

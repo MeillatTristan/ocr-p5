@@ -19,7 +19,8 @@ class TwigRender
             'cache' => false, // __DIR__ . /tmp',
             'debug' => true,
         ]);
-        if (isset($_SESSION['id'])) {
+        $this->twig->addExtension(new \Twig\Extension\DebugExtension());
+        if (isset($_SESSION['user'])) {
             $this->twig->addGlobal('session', $_SESSION);
         }
 

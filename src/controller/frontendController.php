@@ -2,29 +2,18 @@
 
 namespace App\Controller;
 
-use App\Database\ConfigDatabase;
 use App\Service\TwigRender;
 use App\Model\UsersManager;
 
 class FrontendController
 {
     private $renderer;
-    private $verif;
-    private $loginManager;
-    private $postManager;
-    private $commentManager;
-    private $formManager;
-    private $databaseConnexion;
-    private $database;
+    private $usersManager;
 
     public function __construct()
     {
-        // $this->verif = new FunctionValidator();
         $this->renderer = new TwigRender();
         $this->usersManager = new UsersManager();
-        // $this->postManager = new PostManager();
-        // $this->commentManager = new CommentManager();
-        // $this->formManager = new FormManager();
 
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -63,7 +52,7 @@ class FrontendController
     }
 
     public function connexionView(){
-        if(isset($_SESSION['id'])){
+        if(isset($_SESSION['user'])){
             header('Location: /portfolio');
             die();
         }
@@ -83,7 +72,7 @@ class FrontendController
     }
 
     public function connexionRequest(){
-        if(isset($_SESSION['id'])){
+        if(isset($_SESSION['user'])){
             header('Location: /portfolio');
             die();
         }
@@ -92,7 +81,8 @@ class FrontendController
 
         $return = $this->usersManager->loginUser($mail, $passwordToVerify);
         if($return[0] == "y"){
-            $_SESSION['id'] = $return[1];
+            $_SESSION['user'] = $return[1];
+            var_dump($_SESSION['user']);
             header('Location: /portfolio');
             return("");
         }
@@ -103,7 +93,7 @@ class FrontendController
     }
 
     public function deconnexionRequest(){
-        unset($_SESSION['id']);
+        unset($_SESSION['user']);
         header('Location: /portfolio');
     }
 

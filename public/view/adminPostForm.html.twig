@@ -1,0 +1,28 @@
+{% extends 'templateAdmin.html.twig' %}
+
+{% block title %}Admin Page | MEILLAT Tristan{% endblock %}
+
+{% block body %}
+
+<div class="containerBlock">
+  <h2>Ajouter un Article</h2>
+  <form action="/portfolio/postsRequest" method="post">
+    <div class="containerFirstBlock">
+      <div class="containerInput">
+        <input type="text" name="title" placeholder="Titre de l'article">
+        <input type="text" name="chapo" placeholder="Chapo de l'article">
+      </div>
+      <div class="thumbmail">
+        <div id="containerPreview">
+        </div>
+        <input type="file" name="thumbmail" id="uploadThumbmail" accept="image/*">
+      </div>
+    </div>
+    <textarea name="content" cols="30" rows="10" placeholder="Votre contenu... "></textarea>
+    <input class ="validate" type="submit" value="Valider">
+  </form>
+</div>
+
+<script src="public/assets/js/thumbmail.js"></script>
+
+{% endblock %}

@@ -2,6 +2,7 @@
 
 namespace App\Model;
 use App\Database\ConfigDatabase;
+use App\Model\UserModel;
 
 class UsersManager
 {
@@ -14,7 +15,7 @@ class UsersManager
 
 
   public function loginUser($mailToVerify, $passwordToVerify){
-    $request = $this->database->prepare("SELECT id, mail, password from users WHERE mail=:mail");
+    $request = $this->database->prepare("SELECT * from users WHERE mail=:mail");
     $request->execute(["mail" => $mailToVerify]); 
     $user = $request->fetch();
     if(empty($user)){
@@ -23,7 +24,8 @@ class UsersManager
     else{
       $password = $user['password'];
       if(password_verify($passwordToVerify, $password)){
-        return(['y', $user['id']]);
+        $userBdd = new UserModel($user['id'], $user['firstname'], $user['name'], $user['mail'], $user['admin']);
+        return(['y', $userBdd]);
       }
       else{
         return(['n']);

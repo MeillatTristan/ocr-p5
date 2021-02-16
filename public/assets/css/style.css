@@ -16,6 +16,9 @@ body{
 h2{
     font-size: 35px;
 }
+
+
+
 .cursive{
     font-family: 'La Belle Aurore', cursive;
     font-size: 20px;
@@ -37,18 +40,21 @@ h2{
     color: #479860;
 }
 
-nav{
-background: transparent;
-height: 80px;
-width: 100%;
+header{
+    z-index: 3;
+    position: relative;
 }
 
-label.logo{
-    color: #fc4d3c;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
-    font-weight: bold;
+nav{
+    background: transparent;
+    height: 110px;
+    width: 100%;
+}
+
+nav .logo img, footer img{
+    max-height: 110px;
+    width: auto;
+    margin-left: 50px;
 }
 
 nav ul{
@@ -156,6 +162,47 @@ display: none;
       left: 0;
   }
 }
+
+footer{
+    border-top: #232325 solid 1px;
+    position: relative;
+    z-index: 3;
+}
+
+footer .containerFooter{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    padding-top: 20px;
+}
+
+footer .cardFooter{
+    display: flex;
+    flex-direction: column;
+}
+
+footer .cardFooter p{
+    margin-left: 50px;
+    margin-bottom: 30px;
+}
+
+footer .cardFooter h4{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+footer .cardFooter a{
+    color: rgb(216, 215, 215);
+    font-weight: 300;
+    transition: 0.2s;
+}
+
+footer .cardFooter a:hover{
+    color: white;
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
 
 .containerGlobal{
   padding: 50px 100px;
@@ -389,6 +436,8 @@ display: none;
     justify-content: center;
 }
 
+
+
 .containerForm h2{
     margin: 40px;
     text-align: center;
@@ -455,7 +504,14 @@ display: none;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: 2;
+}
+
+.containerSpace{
+    height: 75vh;
+    width: 100%;
+    z-index: -3;
+    position: relative;
 }
 
 .containerFormConnexion{

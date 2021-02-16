@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,7 @@
   <title>{{title}}</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="public/assets/images/favicon/favicon.ico"/> 
 </head>
 <body>
 {# header #}
@@ -19,14 +20,14 @@
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
       </label>
-      <label class="logo">MeillatT</label>
+      <label class="logo"><img src="public/assets/images/logo.png" alt=""></label>
       <ul>
         <li><a class="firstLink" href="/portfolio/">Accueil</a></li>
         <li><a class="secondLink" href="/portfolio/posts">News</a></li>
         <li><a class="thirdLink" href="#">Contact</a></li>
-        {% if session.id is defined %}
+        {% if session.user is defined %}
           <li><a class="fourthLink" href="/portfolio/deconnexion">Déconnexion</a></li>
-        {% else %}      
+        {% else %}
           <li><a class="fourthLink" href="/portfolio/connexion">Connexion</a></li>
         {% endif %}
       </ul>
@@ -37,6 +38,26 @@
       {% block body %}
       {% endblock %}
     </div>
+  <footer>
+    <div class="containerFooter">
+      <div class="cardFooter">
+        <img src="public/assets/images/logo.png" alt="">
+        <p>Copyright © 2021. All Rights Reserved MEILLAT Tristan.</p>
+      </div>
+      <div class="cardFooter">
+        <h4>A propos</h4>
+        <a href="#">Mentions légal</a>
+      </div>
+      {% if session.user is defined %}
+        {% if session.user.admin == 'y' %}
+          <div class="cardFooter">
+            <h4>Admin</h4>
+            <a href="/portfolio/adminPosts">Accès à l'administration</a>
+          </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </footer>
 
 </body>
 </html>

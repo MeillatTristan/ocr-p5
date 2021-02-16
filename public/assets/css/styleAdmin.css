@@ -1,0 +1,169 @@
+*{
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header{
+  width: 15%;
+  position: fixed;
+}
+
+.space{
+  height: 200vh;
+}
+
+header h2{
+  background-color: #3e8ef7;
+  color: white;
+  height: 80px;
+  display: flex;
+  padding-left: 20px;
+  align-items: center;
+  font-weight: 600;
+}
+
+header .sidebar{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #222c32;
+}
+
+header .sidebar li{
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  transition: 0.3s;
+
+}
+
+header .sidebar li:hover{
+  background-color: #263238;
+  transition: 0.2s;
+}
+
+header .sidebar li a{
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+header .sidebar li a i{
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.topbar{
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,.08);
+}
+
+.topbar li a{
+  color: #434950;
+  padding: 15px 30px;
+  font-weight: 400;
+  transition: 0.3s;
+  border-radius: 5px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+}
+
+.topbar li a:hover{
+    color: #2c3135;
+}
+
+.topbar li a i{
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.containerGlobal{
+  margin-left: 15%;
+}
+
+.containerBlock{
+  padding: 30px;
+}
+
+.containerBlock form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 30px;
+}
+
+.containerBlock form .containerFirstBlock{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.containerBlock form .containerInput{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+}
+
+
+
+.containerBlock form .thumbmail{
+  width: 35%;
+  height: 400px;
+}
+
+.containerBlock form .thumbmail #containerPreview{
+  background-color: #f5f5f5;
+  border: #c5c8cc 1px solid;
+  width: 90%;
+  height: 300px;
+  background-size: cover;
+}
+
+input, textarea{
+  padding: 20px;
+  margin-top: 20px;
+  resize: none;
+  border: none;
+  border-bottom: 1px #222c32 solid;
+}
+
+.containerBlock input{
+  width: 90%;
+  border-color: #3e8ef7;
+}
+
+.containerBlock form textarea{
+  width: 90%;
+  height: 600px;
+  border: #e0e3e6 solid 1px;
+}
+
+input::placeholder, textarea::placeholder{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.containerBlock form .validate{
+  width: 50%;
+  background-color: #3BBF69;
+  border: none;
+  color: white;
+  font-size: 20px;
+  justify-self: flex-start;
+}
