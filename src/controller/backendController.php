@@ -4,15 +4,19 @@ namespace App\Controller;
 
 use App\Service\TwigRender;
 use App\Model\UsersManager;
+use DateTime;
+use App\Model\PostsManager;
 
 class backendController{
   private $renderer;
   private $usersManager;
+  private $postsManager;
 
   public function __construct()
   {
     $this->renderer = new TwigRender();
     $this->usersManager = new UsersManager();
+    $this->postsManager = new PostsManager();
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -30,11 +34,54 @@ class backendController{
 
 
   public function adminPostsView(){
-    $this->renderer->render('adminPosts');
+    $posts = $this->postsManager->getPosts();
+    $this->renderer->render('adminPosts', ['posts' => $posts]);
   }
 
   public function adminPostFormView(){
-    $this->renderer->render('adminPostForm');
+    if(isset($_SESSION['successMessage'])){
+      if($_SESSION['successMessage'] == "y"){
+          $successMessage = "Votre article à bien été posté !";
+          unset($_SESSION['successMessage']);
+          $this->renderer->render('adminPostForm', ["successMessage" => $successMessage, "class" => "successMessage"]);
+      }
+      else if($_SESSION['successMessage'] == "n"){
+          $successMessage = 'Une erreur est survenu, veuillez réessayer.';
+          unset($_SESSION['successMessage']);
+          $this->renderer->render('adminPostForm', ["successMessage" => $successMessage, "class" => "errorMessage"]);
+      }
+    }
+    else{
+        $this->renderer->render('adminPostForm');
+    }
+  }
+
+  public function postAddRequest(){
+    $title = $_REQUEST['title'];
+    $chapo = $_REQUEST['chapo'];
+    $thumbmail = $_FILES["fileToUpload"];
+    $content = $_REQUEST['content'];
+    $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
+    $date = new DateTime('NOW');
+    $date = $date->format('d/m/Y');
+    $return = $this->postsManager->createPost($title, $thumbmail, $chapo, $content, $author, $date);
+
+    if($return == "y"){
+      $_SESSION['successMessage'] = "y";
+    }
+    else{
+        $_SESSION['successMessage'] = "n";
+    }
+    header( "Location: /portfolio/adminPostForm" );
+  }
+
+  public function modifPostView($id){
+    $post = $this->postsManager->getPost($id);
+    $this->renderer->render('adminPostFormModif', ['post' => $post]);
+  }
+
+  public function modifPostRequest($id){
+    
   }
 
 }

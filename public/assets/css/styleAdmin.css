@@ -12,11 +12,20 @@ header{
   position: fixed;
 }
 
+a{
+  color: #287ff1;
+  font-weight: 500;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
 .space{
   height: 200vh;
 }
 
-header h2{
+header h1{
   background-color: #3e8ef7;
   color: white;
   height: 80px;
@@ -24,6 +33,7 @@ header h2{
   padding-left: 20px;
   align-items: center;
   font-weight: 600;
+  font-size: 24px;
 }
 
 header .sidebar{
@@ -99,6 +109,31 @@ header .sidebar li a i{
   padding: 30px;
 }
 
+h2{
+  width: max-content;
+  border-bottom: #3e8ef7 3px solid;
+  font-size: 27px;
+}
+
+.containerBlock h2{
+  margin: 10px 0 80px 50px;
+}
+
+.containerBlock p{
+  margin-left: 50px;
+  margin-top: -50px;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.containerBlock .errorMessage{
+  color : #fc4d3c;
+}
+
+.containerBlock .successMessage{
+  color: #479860;
+}
+
 .containerBlock form{
   display: flex;
   flex-wrap: wrap;
@@ -117,7 +152,6 @@ header .sidebar li a i{
   display: flex;
   flex-direction: column;
   width: 50%;
-  justify-content: center;
 }
 
 
@@ -129,10 +163,11 @@ header .sidebar li a i{
 
 .containerBlock form .thumbmail #containerPreview{
   background-color: #f5f5f5;
-  border: #c5c8cc 1px solid;
+  border: #3e8ef7 2px solid;
   width: 90%;
   height: 300px;
   background-size: cover;
+  box-shadow: 0px 0px 18px -7px rgba(0,0,0,0.1);
 }
 
 input, textarea{
@@ -145,13 +180,14 @@ input, textarea{
 
 .containerBlock input{
   width: 90%;
-  border-color: #3e8ef7;
+  border-color: #dad9d9;
+  font-size: 16px;
 }
 
 .containerBlock form textarea{
   width: 90%;
   height: 600px;
-  border: #e0e3e6 solid 1px;
+  border: #dad9d9 solid 1px;
 }
 
 input::placeholder, textarea::placeholder{
@@ -159,11 +195,66 @@ input::placeholder, textarea::placeholder{
   font-size: 16px;
 }
 
+input:focus-visible{
+  border: #e0e3e6;
+  border-bottom: none;
+}
+
+.containerBlock textarea:focus-visible{
+  border: none;
+}
+
 .containerBlock form .validate{
   width: 50%;
-  background-color: #3BBF69;
+  background-color: #3e8ef7;
   border: none;
   color: white;
   font-size: 20px;
-  justify-self: flex-start;
+  cursor: pointer;
+}
+
+.containerTablePosts{
+  padding: 50px;
+}
+
+.containerTablePosts h2{
+  margin-bottom: 20px;
+}
+
+.containerTablePosts .containerTable{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccd0d4;
+  margin-top: 30px;
+}
+
+.containerTablePosts .containerTable .containerHeaderTable{
+  border-bottom: 1px solid #ccd0d4;
+  display: flex;
+  height: 40px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.containerTablePosts .title{
+  width: 20%;
+}
+
+.containerTablePosts .author,.containerTablePosts .lastModif, .containerTablePosts .dateCreate{
+  width: 15%;
+}
+
+.containerTablePosts .modif, .containerTablePosts .delete{
+  width: 10%;
+}
+
+.containerTablePosts .containerPosts .post{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+}
+
+.containerTablePosts .containerPosts .post:nth-child(odd){
+  background-color: #ececec;
 }

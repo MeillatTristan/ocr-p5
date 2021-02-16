@@ -4,8 +4,31 @@
 
 {% block body %}
 
-<h1>yo</h1>
-<div class="space">
+<div class="containerTablePosts">
+  <h2>Gestion des Articles</h2>
+  <a href="adminPostForm">Ajouter un article</a>
+  <div class="containerTable">
+    <div class="containerHeaderTable">
+      <p class="title">Titre</p>
+      <p class="author">Auteur</p>
+      <p class="lastModif">Dernière modification</p>
+      <p class="dateCreate">Date Création</p>
+      <p class="modif">Modifier</p>
+      <p class="delete">Supprimer</p>
+    </div>
+    <div class="containerPosts">
+      {% for post in posts %}
+        <div class="post">
+          <p class="title">{{post.title}}</p>
+          <p class="author">{{post.author}}</p>
+          <p class="lastModif">{{post.lastModif}}</p>
+          <p class="dateCreate">{{post.dateCreate}}</p>
+          <p class="modif"><a href="/portfolio/adminPostFormModif/{{post.id}}">Modifier</a></p>
+          <p class="delete"><a href="#">Supprimer</a></p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
 {% endblock %}
