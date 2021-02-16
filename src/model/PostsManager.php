@@ -72,4 +72,33 @@ class PostsManager
     return $postObject;
   }
 
+  public function modifPost($id, $title, $thumbnail, $description, $chapo, $date){
+    if($thumbnail != "n"){
+      $target_dir = "C:/wamp64/www/portfolio/public/assets/images/";
+      $thumbnail['name'] = $title . "-" . $thumbnail['name'];
+      $target_file = $target_dir . basename($thumbnail["name"]);
+
+      if (!move_uploaded_file($thumbnail["tmp_name"], $target_file)) {
+        return('n');
+      }
+
+      $request = $this->database->prepare("UPDATE posts SET title = :title, thumbnail = :thumbnail, description = :description, chapo = :chapo, lastMaj = :lastMaj WHERE id = :id");
+      $params = [':id' => $id, ':title' => $title, ':thumbnail' => $thumbnail['name'], ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
+      if($request->execute($params)){
+        return("y");
+      }
+      else{
+        return('n');
+      }
+    }
+    $request = $this->database->prepare("UPDATE posts SET title = :title, description = :description, chapo = :chapo, lastMaj = :lastMaj WHERE id = :id");
+    $params = [':id' => $id, ':title' => $title, ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
+    if($request->execute($params)){
+      return("y");
+    }
+    else{
+      return('n');
+    }
+  }
+
 }

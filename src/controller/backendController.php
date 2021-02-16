@@ -65,6 +65,8 @@ class backendController{
     $date = new DateTime('NOW');
     $date = $date->format('d/m/Y');
     $return = $this->postsManager->createPost($title, $thumbmail, $chapo, $content, $author, $date);
+     
+    unset($_FILES["fileToUpload"]);
 
     if($return == "y"){
       $_SESSION['successMessage'] = "y";
@@ -76,12 +78,49 @@ class backendController{
   }
 
   public function modifPostView($id){
-    $post = $this->postsManager->getPost($id);
-    $this->renderer->render('adminPostFormModif', ['post' => $post]);
+    if(isset($_SESSION['successMessage'])){
+      if($_SESSION['successMessage'] == "y"){
+          $successMessage = "Votre article à bien été Modifié !";
+          unset($_SESSION['successMessage']);
+          $post = $this->postsManager->getPost($id);
+          $this->renderer->render('adminPostFormModif', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $id]);
+      }
+      else if($_SESSION['successMessage'] == "n"){
+          $successMessage = 'Une erreur est survenu, veuillez réessayer.';
+          unset($_SESSION['successMessage']);
+          $post = $this->postsManager->getPost($id);
+          $this->renderer->render('adminPostFormModif', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $id]);
+      }
+    }
+    else{
+      $post = $this->postsManager->getPost($id);
+      $this->renderer->render('adminPostFormModif', ['post' => $post, 'id' => $id]);
+    }
   }
 
   public function modifPostRequest($id){
-    
+    $title = $_REQUEST['title'];
+    echo $title;
+    $chapo = $_REQUEST['chapo'];
+
+    if($_FILES['fileToUpload']['name'] != ""){
+      $thumbmail = $_FILES["fileToUpload"];
+    }
+    else{
+      $thumbmail = "n";
+    }
+
+    $content = $_REQUEST['content'];
+    $date = new DateTime('NOW');
+    $date = $date->format('d/m/Y');
+    $return = $this->postsManager->modifPost($id, $title, $thumbmail, $chapo, $content, $date);
+    if($return == "y"){
+      $_SESSION['successMessage'] = "y";
+    }
+    else{
+        $_SESSION['successMessage'] = "n";
+    }
+    header( "Location: /portfolio/adminPostFormModif/$id" );
   }
 
 }

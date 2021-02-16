@@ -11,7 +11,7 @@
   {% if successMessage is defined %}
     <p class={{class}}>{{successMessage}}</p>
   {% endif %}
-  <form action="/portfolio/ModifPostsRequest" method="post" enctype="multipart/form-data">
+  <form action="/portfolio/ModifPostRequest/{{ id }}" method="post" enctype="multipart/form-data">
     <div class="containerFirstBlock">
       <div class="containerInput">
         <input type="text" name="title" placeholder="Titre de l'article" value="{{post.title}}" required>
@@ -20,7 +20,7 @@
       <div class="thumbmail">
         <div id="containerPreview" style="background-image : url('../public/assets/images/{{ post.thumbnail }}');">
         </div>
-        <input type="file" name="fileToUpload" id="uploadThumbmail" accept="image/*" required>
+        <input type="file" name="fileToUpload" id="uploadThumbmail" accept="image/*" >
       </div>
     </div>
     <textarea name="content" cols="30" rows="10" placeholder="Votre contenu... " required>{{post.content}}</textarea>
