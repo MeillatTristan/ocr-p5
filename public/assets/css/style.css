@@ -460,7 +460,7 @@ footer .cardFooter a:hover{
     height: 50px;
 }
 
-.containerForm input, .containerForm textarea{
+.containerForm input, .containerForm textarea, textarea{
     padding: 10px;
     background-color:transparent;
     color: white;
@@ -679,4 +679,92 @@ footer .cardFooter a:hover{
 
 h1{
     font-size: 40px;
+}
+
+.containerBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerPost{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.containerPost .title{
+    font-size: 40px;
+    text-decoration: underline #55669c 2px;
+}
+
+.containerPost .chapo{
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.containerPost .info{
+    font-size: 20px;
+    color: rgb(189, 189, 189);
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.containerPost img{
+    width: 100%;
+}
+
+.containerPost .content{
+    padding: 40px;
+}
+
+.comments{
+    display: flex;
+    flex-direction: column;
+}
+
+.comments textarea{
+    border: #58585f 1px solid;
+    border-radius: 3px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titleComments{
+    margin-bottom: 20px;
+}
+
+.comments input{
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border: solid 2px #7a6697;
+    background-color: transparent;
+    transition: 0.3s;
+    width: 25%;
+    margin-top: 30px;
+    margin-left:auto;
+    margin-right: auto;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.comments input:hover{
+    background-color: #7a6697;
+    border-color: white;
+    color: white;
+    transition: 0.3s;
+}
+
+.successMessage{
+    color: #479860;
+    margin-top: 10px;
+}
+
+.errorMessage{
+    color: #fc4d3c;
+    margin-top: 10px;
 }

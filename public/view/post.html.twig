@@ -1,15 +1,34 @@
 {% extends 'template.html.twig' %}
 
 {% block css %}..\{% endblock %}
+{% block logoFooter %}..\{% endblock %}
+{% block logoHeader %}..\{% endblock %}
+
 
 {% block title %} {{ post.title }} {% endblock %}
 
 {% block body %}
 
-<div class="containerPost">
-  <h1 class="title">{{ post.title }}</h1>
-  <p class="chapo">{{ post.chapo }}</p>
-  <p class="info">Par {{ post.author }}, publié le {{ post.dateCreate }}, dernière mise à jour le {{ post.lastModif }}</p>
+<div class="containerBlock">
+  <div class="containerPost">
+    <h1 class="title">{{ post.title }}</h1>
+    <p class="chapo">{{ post.chapo }}</p>
+    <p class="info">Par {{ post.author }}, publié le {{ post.dateCreate }}, dernière mise à jour le {{ post.lastModif }}</p>
+    <img src="../public/assets/images/{{ post.thumbnail }}" alt="">
+    <p class="content">{{ post.content }}</p>
+    
+    <h2 class="titleComments">Commentaires</h2>
+    {% if successMessage is defined %}
+    <p class={{class}}>{{successMessage}}</p>
+  {% endif %}
+
+    {% if session.user is defined %}
+      <form action="/portfolio/commentRequest/{{ post.id }}" method="post" class="comments">
+        <textarea name="comment" cols="30" rows="10" placeholder="Votre commentaire..." ></textarea>
+        <input type="submit" value="Envoyer">
+      </form>
+    {% endif %}
+  </div>
 </div>
 
 {% endblock %}

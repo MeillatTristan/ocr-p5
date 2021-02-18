@@ -6,6 +6,7 @@ use App\Service\TwigRender;
 use App\Model\UsersManager;
 use DateTime;
 use App\Model\PostsManager;
+use App\Model\CommentsManager;
 
 class backendController{
   private $renderer;
@@ -17,6 +18,7 @@ class backendController{
     $this->renderer = new TwigRender();
     $this->usersManager = new UsersManager();
     $this->postsManager = new PostsManager();
+    $this->commentsManager = new CommentsManager();
 
     if (session_status() == PHP_SESSION_NONE) {
         session_start();
@@ -129,6 +131,27 @@ class backendController{
       $_SESSION['successMessage'] = "n";
     }
     header( "Location: /portfolio/adminPosts" );
+  }
+
+  public function commentRequest($idPost){
+    $content = $_REQUEST['comment'];
+    $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
+    $date = new DateTime('NOW');
+    $date = $date->format('d/m/Y');
+
+    $return = $this->commentsManager->createComment($idPost, $content, $author, $date);
+
+    if($return == "y"){
+      $_SESSION['successMessage'] = "y";
+    }
+    else{
+        $_SESSION['successMessage'] = "n";
+    }
+    header( "Location: /portfolio/posts/$idPost" );
+  }
+
+  public function CommentAdminView(){
+    
   }
 
 }

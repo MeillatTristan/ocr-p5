@@ -35,9 +35,25 @@ class FrontendController
     }
 
     public function postView($id){
+        if(isset($_SESSION['successMessage'])){
+            if($_SESSION['successMessage'] == "y"){
+                $successMessage = "Votre commentaire est bien pris en compte, il est soumis à validation !";
+                unset($_SESSION['successMessage']);
+                $post = $this->postsManager->getPost($id);
+                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $id]);
+            }
+            else if($_SESSION['successMessage'] == "n"){
+                $successMessage = 'Une erreur est survenu, veuillez réessayer.';
+                unset($_SESSION['successMessage']);
+                $post = $this->postsManager->getPost($id);
+                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $id]);
+            }
+        }
+        else{
         $post = $this->postsManager->getPost($id);
         $this->renderer->render('post', ['post' => $post, 'id' => $id]);
-    }
+        }
+}
 
     public function sendMail()
     {

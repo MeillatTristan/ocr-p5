@@ -33,6 +33,7 @@ $router->post('/postsRequest', 'backend#postAddRequest');
 $router->get('/adminPostFormModif/:id', 'backend#modifPostView');
 $router->post('/modifPostRequest/:id', 'backend#modifPostRequest');
 $router->get('/adminPostDelete/:id', 'backend#deletePost');
+$router->post('commentRequest/:id', 'backend#commentRequest');
 
 $router->get('/posts/:id', function($id){echo "afficher l'article " . $id; });
 $router->post('/posts/:id', function($id){echo "poster l'article " . $id; });

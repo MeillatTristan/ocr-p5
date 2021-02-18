@@ -10,7 +10,7 @@
   <title>{% block title %}{% endblock %}</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
-  <link rel="shortcut icon" href="public/assets/images/favicon/favicon.ico"/> 
+  <link rel="shortcut icon" href="public/assets/images/favicon/favicon.ico"/>
 </head>
 <body>
 {# header #}
@@ -20,7 +20,7 @@
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>
       </label>
-      <label class="logo"><img src="public/assets/images/logo.png" alt=""></label>
+      <label class="logo"><img src="{% block logoHeader %} {% endblock %}public/assets/images/logo.png" alt=""></label>
       <ul>
         <li><a class="firstLink" href="/portfolio/">Accueil</a></li>
         <li><a class="secondLink" href="posts">News</a></li>
@@ -40,7 +40,7 @@
   <footer>
     <div class="containerFooter">
       <div class="cardFooter">
-        <img src="public/assets/images/logo.png" alt="">
+        <img src="{% block logoFooter %} {% endblock %}public/assets/images/logo.png" alt="">
         <p>Copyright © 2021. All Rights Reserved MEILLAT Tristan.</p>
       </div>
       <div class="cardFooter">
