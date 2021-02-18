@@ -599,3 +599,84 @@ footer .cardFooter a:hover{
     color: #fc4d3c;
     margin-top: 5px;
 }
+
+.containerPosts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.containerPosts .postCard{
+    width: 1100px;
+    margin-top: 50px;
+    border: 1px solid #242427;
+    display: flex;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.1s;
+}
+
+.containerPosts .postCard:hover{
+    background-color: #202021;
+}
+
+.containerPosts .postCard .title{
+    font-size: 30px;
+}
+
+.containerPosts .postCard .info{
+    margin-bottom: 30px;
+    color: #7c7c7c;
+}
+
+.containerPosts .postCard .thumbnail{
+    height: 100%;
+    width: auto;
+    max-width: 45%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+
+}
+
+.containerPosts .postCard .containerText{
+    margin-left: 30px;
+    width: 50%;
+    margin-top: 20px;
+    position: relative;
+}
+
+.containerPosts .postCard .chapo{
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.containerPosts .postCard .content{
+    padding-right: 20px;
+}
+
+.containerPosts .postCard .containerText a{
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border: solid 2px #7a6697;
+    background-color: transparent;
+    position: absolute;
+    bottom: 30px;
+    right: 50px;
+    transition: 0.3s;
+}
+
+.containerPosts .postCard .containerText a:hover{
+    background-color: #7a6697;
+    border-color: white;
+    color: white;
+    transition: 0.3s;
+}
+
+
+h1{
+    font-size: 40px;
+}

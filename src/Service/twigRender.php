@@ -2,6 +2,8 @@
 
 namespace App\Service;
 
+use Twig\Extra\String\StringExtension;
+
 class TwigRender
 {
     private $twig;
@@ -22,6 +24,7 @@ class TwigRender
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
         if (isset($_SESSION['user'])) {
             $this->twig->addGlobal('session', $_SESSION);
+            $this->twig->addExtension(new StringExtension());
         }
 
         echo $this->twig->render($view.'.html.twig', $prams);

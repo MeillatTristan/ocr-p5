@@ -2,7 +2,8 @@
     "name": "meillat/portfolio",
     "require": {
         "twig/twig": "^3.2",
-        "twbs/bootstrap": "^4.6"
+        "twbs/bootstrap": "^4.6",
+        "twig/string-extra": "^3.3"
     },
     "authors": [
         {
@@ -13,7 +14,8 @@
     
     "autoload": {
         "psr-4": {
-            "App\\": "src"
+            "App\\": "src",
+            "Twig\\": "vendor/twig"
         }
     }
 }

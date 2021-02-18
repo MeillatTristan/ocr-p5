@@ -1,9 +1,25 @@
 {% extends 'template.html.twig' %}
 
-{% block title %}{% endblock %}
+{% block title %}Article | MEILLAT Tristan{% endblock %}
+
 
 {% block body %}
 
-<h1>posts</h1>
+<h1>Les derniers articles</h1>
+
+<div class="containerPosts">
+  {% for post in posts %}
+    <div class="postCard">
+      <img class="thumbnail" src="public/assets/images/{{ post.thumbnail }}" alt="">
+      <div class="containerText">
+        <h2 class="title">{{ post.title }}</h2>
+        <p class="chapo">{{ post.chapo }}</p>
+        <p class="info">{{ post.author}} | Dernière modification : {{ post.lastModif }}</p>
+        <p class="content">{{post.content| u.truncate(200, '...')}} </p>
+        <a href="posts/{{ post.id }}">Voir Plus</a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
 
 {% endblock %}

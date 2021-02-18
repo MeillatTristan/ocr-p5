@@ -1,0 +1,15 @@
+{% extends 'template.html.twig' %}
+
+{% block css %}..\{% endblock %}
+
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block body %}
+
+<div class="containerPost">
+  <h1 class="title">{{ post.title }}</h1>
+  <p class="chapo">{{ post.chapo }}</p>
+  <p class="info">Par {{ post.author }}, publié le {{ post.dateCreate }}, dernière mise à jour le {{ post.lastModif }}</p>
+</div>
+
+{% endblock %}

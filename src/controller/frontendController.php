@@ -4,16 +4,19 @@ namespace App\Controller;
 
 use App\Service\TwigRender;
 use App\Model\UsersManager;
+use App\Model\PostsManager;
 
 class FrontendController
 {
     private $renderer;
     private $usersManager;
+    private $postsManager;
 
     public function __construct()
     {
         $this->renderer = new TwigRender();
         $this->usersManager = new UsersManager();
+        $this->postsManager = new PostsManager();
 
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -27,7 +30,13 @@ class FrontendController
 
     public function PostsView()
     {
-        $this->renderer->render('posts');
+        $posts = $this->postsManager->getPosts();
+        $this->renderer->render('posts', ['posts' => array_reverse($posts)]);
+    }
+
+    public function postView($id){
+        $post = $this->postsManager->getPost($id);
+        $this->renderer->render('post', ['post' => $post, 'id' => $id]);
     }
 
     public function sendMail()

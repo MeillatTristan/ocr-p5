@@ -2,6 +2,10 @@
 
 {% block title %}Admin Page | MEILLAT Tristan{% endblock %}
 
+{% block script %}
+<script src="public/assets/js/popup.js"></script>
+{% endblock %}
+
 {% block body %}
 
 <div class="containerTablePosts">
@@ -24,7 +28,16 @@
           <p class="lastModif">{{post.lastModif}}</p>
           <p class="dateCreate">{{post.dateCreate}}</p>
           <p class="modif"><a href="/portfolio/adminPostFormModif/{{post.id}}">Modifier</a></p>
-          <p class="delete"><a href="#">Supprimer</a></p>
+          <p class="delete"><a onclick="popup({{ post.id }})">Supprimer</a></p>
+          <div class="popup" id="popup-{{ post.id }}">
+            <div class="containerContent">
+              <p>Êtes vous sur de vouloir supprimer cet article ?</p>
+              <div class="button">
+                <a class="return" onclick="popup({{ post.id }})">Annuler</a>
+                <a class="delete" href="/portfolio/adminPostDelete/{{post.id}}">Supprimer</a>
+              </div>
+            </div>
+          </div>
         </div>
       {% endfor %}
     </div>

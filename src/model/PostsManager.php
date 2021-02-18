@@ -101,4 +101,16 @@ class PostsManager
     }
   }
 
+  public function deletePost($id){
+    $request = $this->database->prepare("DELETE FROM posts WHERE id=:id");
+    $params = [':id' => $id];
+    if($request->execute($params)){
+      return('y');
+    }
+    else{
+      return('n');
+    }
+
+  }
+
 }

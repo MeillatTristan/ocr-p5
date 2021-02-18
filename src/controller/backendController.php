@@ -100,7 +100,6 @@ class backendController{
 
   public function modifPostRequest($id){
     $title = $_REQUEST['title'];
-    echo $title;
     $chapo = $_REQUEST['chapo'];
 
     if($_FILES['fileToUpload']['name'] != ""){
@@ -113,7 +112,7 @@ class backendController{
     $content = $_REQUEST['content'];
     $date = new DateTime('NOW');
     $date = $date->format('d/m/Y');
-    $return = $this->postsManager->modifPost($id, $title, $thumbmail, $chapo, $content, $date);
+    $return = $this->postsManager->modifPost($id, $title, $thumbmail, $content, $chapo, $date);
     if($return == "y"){
       $_SESSION['successMessage'] = "y";
     }
@@ -121,6 +120,15 @@ class backendController{
         $_SESSION['successMessage'] = "n";
     }
     header( "Location: /portfolio/adminPostFormModif/$id" );
+  }
+
+  public function deletePost($id){
+    $return = $this->postsManager->deletePost($id);
+    
+    if($return == "n"){
+      $_SESSION['successMessage'] = "n";
+    }
+    header( "Location: /portfolio/adminPosts" );
   }
 
 }
