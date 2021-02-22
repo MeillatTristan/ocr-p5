@@ -30,50 +30,35 @@ class CommentsManager
     $comments = $request->fetchAll();
     $commentsObjects = [];
     foreach ($comments as $comment) {
-      $commentObject = new commentModel($comment['id'], $comment['content'], $comment['author'], $comment['date'], $comment['idPost'], $comment['validate']);
+      $commentObject = new CommentModel($comment['id'], $comment['content'], $comment['author'], $comment['date'], $comment['idPost'], $comment['validate']);
       $commentsObjects[] = $commentObject;
     }
     return $commentsObjects;
   }
 
-  public function getPost($id){
-    $request = $this->database->query("SELECT * FROM posts WHERE id = $id");
-    $post = $request->fetch();
-    $postObject = new PostModel($post['id'], $post['title'], $post['chapo'], $post['thumbnail'], $post['description'], $post['author'], $post['lastMaj'], $post['dateCreation']);
-    return $postObject;
+  public function getComment($id){
+    $request = $this->database->query("SELECT * FROM comments WHERE id = $id");
+    $comment = $request->fetch();
+    $commentObject = new CommentModel($comment['id'], $comment['content'], $comment['author'], $comment['date'], $comment['idPost'], $comment['validate']);
+    return $commentObject;
   }
 
-  public function modifPost($id, $title, $thumbnail, $description, $chapo, $date){
-    if($thumbnail != "n"){
-      $target_dir = "C:/wamp64/www/portfolio/public/assets/images/";
-      $thumbnail['name'] = $title . "-" . $thumbnail['name'];
-      $target_file = $target_dir . basename($thumbnail["name"]);
-
-      if (!move_uploaded_file($thumbnail["tmp_name"], $target_file)) {
-        return('n');
-      }
-
-      $request = $this->database->prepare("UPDATE posts SET title = :title, thumbnail = :thumbnail, description = :description, chapo = :chapo, lastMaj = :lastMaj WHERE id = :id");
-      $params = [':id' => $id, ':title' => $title, ':thumbnail' => $thumbnail['name'], ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
-      if($request->execute($params)){
-        return("y");
-      }
-      else{
-        return('n');
-      }
-    }
-    $request = $this->database->prepare("UPDATE posts SET title = :title, description = :description, chapo = :chapo, lastMaj = :lastMaj WHERE id = :id");
-    $params = [':id' => $id, ':title' => $title, ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
-    if($request->execute($params)){
-      return("y");
+  public function validateComment($id){
+    $comment = $this->getComment($id);
+    if($comment->validate == "y"){
+      $request = $this->database->prepare("UPDATE comments SET validate = :validate WHERE id = :id");
+      $params = [':validate' => "n", "id" => $id];
+      $request->execute($params);
     }
     else{
-      return('n');
+      $request = $this->database->prepare("UPDATE comments SET validate = :validate WHERE id = :id");
+      $params = [':validate' => "y", "id" => $id];
+      $request->execute($params);
     }
   }
 
-  public function deletePost($id){
-    $request = $this->database->prepare("DELETE FROM posts WHERE id=:id");
+public function deleteComment($id){
+    $request = $this->database->prepare("DELETE FROM comments WHERE id=:id");
     $params = [':id' => $id];
     if($request->execute($params)){
       return('y');

@@ -237,15 +237,19 @@ input:focus-visible{
   align-items: center;
 }
 
+.containerTablePosts .content{
+  width: 30%;
+}
+
 .containerTablePosts .title{
   width: 20%;
 }
 
-.containerTablePosts .author,.containerTablePosts .lastModif, .containerTablePosts .dateCreate{
-  width: 15%;
+.containerTablePosts .lastModif, .containerTablePosts .dateCreate{
+  width: 10%;
 }
 
-.containerTablePosts .modif, .containerTablePosts .delete{
+.containerTablePosts .author, .containerTablePosts .modif, .containerTablePosts .delete{
   width: 10%;
 }
 

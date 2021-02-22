@@ -155,4 +155,15 @@ class backendController{
     $this->renderer->render('adminComment', ['comments' => $comments]);
   }
 
+  public function manageCommentValid($id){
+    $this->commentsManager->validateComment($id);
+    header( "Location: /portfolio/manageCommentaire" );
+
+  }
+
+  public function deleteComment($id){
+    $this->commentsManager->deleteComment($id);
+    header( "Location: /portfolio/manageCommentaire" );
+  }
+
 }

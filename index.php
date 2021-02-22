@@ -35,6 +35,9 @@ $router->post('/modifPostRequest/:id', 'backend#modifPostRequest');
 $router->get('/adminPostDelete/:id', 'backend#deletePost');
 $router->post('commentRequest/:id', 'backend#commentRequest');
 $router->get('/ManageCommentaire', 'backend#manageComment');
+$router->get('/ManageCommentaireValid/:id', 'backend#manageCommentValid');
+$router->get('/commentDelete/:id', 'backend#deleteComment');
+
 
 
 $router->get('/posts/:id', function($id){echo "afficher l'article " . $id; });

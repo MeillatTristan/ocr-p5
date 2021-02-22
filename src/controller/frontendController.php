@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Service\TwigRender;
 use App\Model\UsersManager;
 use App\Model\PostsManager;
+use App\Model\CommentsManager;
 
 class FrontendController
 {
@@ -17,6 +18,7 @@ class FrontendController
         $this->renderer = new TwigRender();
         $this->usersManager = new UsersManager();
         $this->postsManager = new PostsManager();
+        $this->commentsManager = new CommentsManager();
 
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
@@ -35,23 +37,25 @@ class FrontendController
     }
 
     public function postView($id){
+        $comments = $this->commentsManager->getComments();
+
         if(isset($_SESSION['successMessage'])){
             if($_SESSION['successMessage'] == "y"){
                 $successMessage = "Votre commentaire est bien pris en compte, il est soumis à validation !";
                 unset($_SESSION['successMessage']);
                 $post = $this->postsManager->getPost($id);
-                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $id]);
+                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $id, 'comments' => $comments]);
             }
             else if($_SESSION['successMessage'] == "n"){
                 $successMessage = 'Une erreur est survenu, veuillez réessayer.';
                 unset($_SESSION['successMessage']);
                 $post = $this->postsManager->getPost($id);
-                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $id]);
+                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $id, 'comments' => $comments]);
             }
         }
         else{
         $post = $this->postsManager->getPost($id);
-        $this->renderer->render('post', ['post' => $post, 'id' => $id]);
+        $this->renderer->render('post', ['post' => $post, 'id' => $id, 'comments' => $comments]);
         }
 }
 

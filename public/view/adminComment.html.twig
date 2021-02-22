@@ -13,6 +13,7 @@
   <div class="containerTable">
     <div class="containerHeaderTable">
       <p class="author">Auteur</p>
+      <p class="content">Commentaire</p>
       <p class="dateCreate">Date Création</p>
       <p class="validate">Status</p>
       <p class="modif">Valider</p>
@@ -22,20 +23,26 @@
       {% for comment in comments %}
         <div class="post" >
           <p class="author">{{comment.author}}</p>
+          <p class="content">{{comment.content}}</p>
           <p class="dateCreate">{{comment.dateCreate}}</p>
-          {% if comment.validate == y %}
+          {% if comment.validate == "y" %}
             <p class="validate"><span class="Y">Validé</span></p>
           {% else %}
             <p class="validate"><span class="N">En attente</span></p>
           {% endif %}
-          <p class="modif"><a href="/portfolio/adminPostFormModif/{{comment.id}}">Valider</a></p>
+
+          {% if comment.validate == "y" %}
+            <p class="modif"><a href="/portfolio/ManageCommentaireValid/{{comment.id}}">Mettre en attente</a></p>
+          {% else %}
+            <p class="modif"><a href="/portfolio/ManageCommentaireValid/{{comment.id}}">Valider</a></p>
+          {% endif %}
           <p class="delete"><a onclick="popup({{ comment.id }})">Supprimer</a></p>
           <div class="popup" id="popup-{{ comment.id }}">
             <div class="containerContent">
               <p>Êtes vous sur de vouloir supprimer cet article ?</p>
               <div class="button">
                 <a class="return" onclick="popup({{ comment.id }})">Annuler</a>
-                <a class="delete" href="/portfolio/adminPostDelete/{{comment.id}}">Supprimer</a>
+                <a class="delete" href="/portfolio/CommentDelete/{{comment.id}}">Supprimer</a>
               </div>
             </div>
           </div>

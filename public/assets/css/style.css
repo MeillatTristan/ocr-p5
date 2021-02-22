@@ -768,3 +768,25 @@ h1{
     color: #fc4d3c;
     margin-top: 10px;
 }
+
+.containerComments .comment{
+    background-color: #1f1f22;
+    padding: 20px 20px 10px 20px;
+    margin: 30px;
+    border: solid 1px #2d2d30;
+    border-radius: 3px;
+}
+
+.containerComments .comment .headerComment{
+    display: flex;
+    justify-content: space-between;
+}
+
+.containerComments .comment .author{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.containerComments .comment .date{
+    color: rgb(167, 167, 167);
+}
