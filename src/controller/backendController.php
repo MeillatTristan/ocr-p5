@@ -150,8 +150,9 @@ class backendController{
     header( "Location: /portfolio/posts/$idPost" );
   }
 
-  public function CommentAdminView(){
-    
+  public function manageComment(){
+    $comments = $this->commentsManager->getComments();
+    $this->renderer->render('adminComment', ['comments' => $comments]);
   }
 
 }

@@ -249,6 +249,18 @@ input:focus-visible{
   width: 10%;
 }
 
+.containerTablePosts .validate{
+  width: 10%;
+}
+
+.containerTablePosts .Y{
+  color: #479860;
+}
+
+.containerTablePosts .N{
+  color: #fd7a52;
+}
+
 .containerTablePosts .containerPosts .post{
   display: flex;
   justify-content: space-around;

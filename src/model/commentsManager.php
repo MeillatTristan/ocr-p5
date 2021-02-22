@@ -25,15 +25,15 @@ class CommentsManager
     }
   }
 
-  public function getPosts(){
-    $request = $this->database->query("SELECT * FROM posts");
-    $posts = $request->fetchAll();
-    $postsObjects = [];
-    foreach ($posts as $post) {
-      $postObject = new PostModel($post['id'], $post['title'], $post['chapo'], $post['thumbnail'], $post['description'], $post['author'], $post['lastMaj'], $post['dateCreation']);
-      $postsObjects[] = $postObject;
+  public function getComments(){
+    $request = $this->database->query("SELECT * FROM comments");
+    $comments = $request->fetchAll();
+    $commentsObjects = [];
+    foreach ($comments as $comment) {
+      $commentObject = new commentModel($comment['id'], $comment['content'], $comment['author'], $comment['date'], $comment['idPost'], $comment['validate']);
+      $commentsObjects[] = $commentObject;
     }
-    return $postsObjects;
+    return $commentsObjects;
   }
 
   public function getPost($id){
