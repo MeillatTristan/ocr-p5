@@ -37,6 +37,8 @@ $router->post('commentRequest/:id', 'backend#commentRequest');
 $router->get('/ManageCommentaire', 'backend#manageComment');
 $router->get('/ManageCommentaireValid/:id', 'backend#manageCommentValid');
 $router->get('/commentDelete/:id', 'backend#deleteComment');
+$router->get('/manageUsers', 'backend#manageUsers');
+$router->get('/adminRightChange/:id', 'backend#adminRightChange');
 
 
 

@@ -52,4 +52,35 @@ class UsersManager
     }
   }
 
+  public function getUsers(){
+    $request = $this->database->query('SELECT * FROM users')->fetchAll();
+    $usersArray = [];
+    foreach ($request as $user) {
+      $usersArray[] = new UserModel($user['id'], $user['firstname'], $user['name'], $user['mail'], $user['admin']);
+    }
+    return $usersArray;
+  }
+  
+  public function getUser($id){
+    $user = $this->database->query("SELECT * FROM users WHERE id = $id")->fetch();
+    $user = new UserModel($user['id'], $user['firstname'], $user['name'], $user['mail'], $user['admin']);
+    return $user;
+  }
+
+  public function rightChange($id){
+    $user = $this->getUser($id);
+    if($user->admin == 'y'){
+      $request = $this->database->prepare('UPDATE users SET admin = :admin WHERE id = :id ');
+      $params = [':admin' => 'n', ':id' => $id];
+      $request->execute($params);
+    }
+    else{
+      $request = $this->database->prepare('UPDATE users SET admin = :admin WHERE id = :id ');
+      $params = [':admin' => 'y', ':id' => $id];
+      $request->execute($params);
+    }
+
+
+  }
+
 }

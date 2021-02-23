@@ -1,0 +1,50 @@
+{% extends 'templateAdmin.html.twig' %}
+
+{% block title %}Admin Page | MEILLAT Tristan{% endblock %}
+
+{% block script %}
+<script src="public/assets/js/popup.js"></script>
+{% endblock %}
+
+{% block body %}
+
+<div class="containerTablePosts">
+  <h2>Gestion des utilisateurs</h2>
+  <div class="containerTable">
+    <div class="containerHeaderTable">
+      <p class="id">ID</p>
+      <p class="name">Nom</p>
+      <p class="mail">Mail</p>
+      <p class="admin">Droits</p>
+      <p class="modif">Modifier les droits</p>
+      <p class="delete">Supprimer</p>
+    </div>
+    <div class="containerPosts">
+      {% for user in users %}
+        <div class="post">
+          <p class="id">{{user.id}}</p>
+          <p class="name">{{user.firstname}} {{ user.name }}</p>
+          <p class="mail">{{user.mail}}</p>
+          {% if user.admin == 'y' %}
+            <p class="admin">Administrateur</p>
+          {% else %}
+            <p class="admin">Utilisateur</p>
+          {% endif %}
+          <p class="modif"><a href="/portfolio/adminRightChange/{{user.id}}">Modifier</a></p>
+          <p class="delete"><a onclick="popup({{ user.id }})">Supprimer</a></p>
+          <div class="popup" id="popup-{{ user.id }}">
+            <div class="containerContent">
+              <p>Êtes vous sur de vouloir supprimer cet utilisateur ?</p>
+              <div class="button">
+                <a class="return" onclick="popup({{ user.id }})">Annuler</a>
+                <a class="delete" href="/portfolio/adminPostDelete/{{user.id}}">Supprimer</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

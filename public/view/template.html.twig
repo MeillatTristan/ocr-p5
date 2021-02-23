@@ -23,11 +23,11 @@
       <label class="logo"><img src="{% block logoHeader %} {% endblock %}public/assets/images/logo.png" alt=""></label>
       <ul>
         <li><a class="firstLink" href="/portfolio/">Accueil</a></li>
-        <li><a class="secondLink" href="posts">News</a></li>
+        <li><a class="secondLink" href="/portfolio/posts">News</a></li>
         {% if session.user is defined %}
-          <li><a class="fourthLink" href="deconnexion">Déconnexion</a></li>
+          <li><a class="fourthLink" href="/portfolio/deconnexion">Déconnexion</a></li>
         {% else %}
-          <li><a class="fourthLink" href="connexion">Connexion</a></li>
+          <li><a class="fourthLink" href="/portfolio/connexion">Connexion</a></li>
         {% endif %}
       </ul>
     </nav>

@@ -20,14 +20,15 @@
     <h2 class="titleComments">Commentaires</h2>
     <div class="containerComments">
       {% for comment in comments %}
-      <div class="comment">
-        <div class="headerComment">
-          <p class="author">{{ comment.author }}</p>
-          <p class="date">{{ comment.dateCreate }}</p>
-        </div>
-        <p class="content">{{ comment.content }}</p>
-
-      </div>
+        {% if comment.validate == 'y' and comment.idPost == post.id  %}
+          <div class="comment">
+            <div class="headerComment">
+              <p class="author">{{ comment.author }}</p>
+              <p class="date">{{ comment.dateCreate }}</p>
+            </div>
+            <p class="content">{{ comment.content }}</p>
+          </div>
+        {% endif %}
       {% endfor %}
     </div>
     <h2 class="titleComments">Ajouter un commentaires</h2>

@@ -166,4 +166,14 @@ class backendController{
     header( "Location: /portfolio/manageCommentaire" );
   }
 
+  public function manageUsers(){
+    $users = $this->usersManager->getUsers();
+    $this->renderer->render('adminUsers', ['users' => $users]);
+  }
+
+  public function adminRightChange($id){
+    $this->usersManager->rightChange($id);
+    header("Location: /portfolio/manageUsers");
+  }
+
 }

@@ -253,8 +253,13 @@ input:focus-visible{
   width: 10%;
 }
 
-.containerTablePosts .validate{
+.containerTablePosts .validate, .containerTablePosts .id, .containerTablePosts .name, .containerTablePosts .mail, .containerTablePosts .admin{
   width: 10%;
+}
+
+.containerTablePosts .containerTable .containerPosts .comment{
+  height: auto;
+  padding: 15px 0;
 }
 
 .containerTablePosts .Y{

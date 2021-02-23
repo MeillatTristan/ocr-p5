@@ -22,9 +22,9 @@ class TwigRender
             'debug' => true,
         ]);
         $this->twig->addExtension(new \Twig\Extension\DebugExtension());
+        $this->twig->addExtension(new StringExtension());
         if (isset($_SESSION['user'])) {
             $this->twig->addGlobal('session', $_SESSION);
-            $this->twig->addExtension(new StringExtension());
         }
 
         echo $this->twig->render($view.'.html.twig', $prams);
