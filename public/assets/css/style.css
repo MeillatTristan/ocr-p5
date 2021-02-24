@@ -266,9 +266,9 @@ footer .cardFooter a:hover {
 
 .containerHeaderHome .containerTitle .socialList .firstChild:after  {
   position: absolute;
-  top: -4px; 
+  top: -4px;
   bottom: -4px;
-  left: -4px; 
+  left: -4px;
   right: -4px;
   background: linear-gradient(to left, #0d669b 0%, #cdbc82 100%);
   content: '';
@@ -517,9 +517,9 @@ footer .cardFooter a:hover {
 
 .containerFormConnexion {
   background-color: #262629;
-  -webkit-box-shadow:0 0 30px -4px#262629;
-  -moz-box-shadow:0 0 30px -4px#262629;
-  box-shadow:0 0 30px -4px#262629;
+  -webkit-box-shadow: 0 0 30px -4px #262629;
+  -moz-box-shadow: 0 0 30px -4px #262629;
+  box-shadow: 0 0 30px -4px #262629;
   width: 600px;
   padding: 30px;
   min-height: 500px;
@@ -588,7 +588,7 @@ footer .cardFooter a:hover {
 }
 
 .containerFormConnexion .inscriptionTitle {
-  margin-bottom:0 ;
+  margin-bottom: 0;
 }
 
 .containerFormConnexion .successMessage {
