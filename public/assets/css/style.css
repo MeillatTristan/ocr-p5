@@ -251,7 +251,7 @@ footer .cardFooter a:hover {
   margin-top: 50px;
 }
 
-.containerHeaderHome .containerTitle .socialList li  {
+.containerHeaderHome .containerTitle .socialList li {
   position: relative;
   width: 100px;
   height: 100px;
@@ -461,7 +461,9 @@ footer .cardFooter a:hover {
   height: 50px;
 }
 
-.containerForm input, .containerForm textarea, textarea {
+.containerForm input,
+.containerForm textarea,
+textarea {
   padding: 10px;
   background-color: transparent;
   color: white;
@@ -472,7 +474,8 @@ footer .cardFooter a:hover {
   resize: none;
 }
 
-.containerForm input::placeholder, .containerForm textarea::placeholder {
+.containerForm input::placeholder,
+.containerForm textarea::placeholder {
   color: #58585f;
   font-family: "montserrat";
   font-size: 18px;
@@ -528,7 +531,7 @@ footer .cardFooter a:hover {
   justify-content: center;
 }
 
-.containerFormConnexion h2 {
+.containerFormConnexion .containerTitle h2 {
   text-align: center;
   margin-bottom: 30px;
 }
@@ -568,7 +571,7 @@ footer .cardFooter a:hover {
   cursor: pointer;
 }
 
-.containerFormConnexion p {
+.containerConnexion .containerFormConnexion p {
   text-align: center;
   margin-top: 30px;
 }
