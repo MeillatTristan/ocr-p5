@@ -61,7 +61,6 @@ class backendController{
     $chapo = $_REQUEST['chapo'];
     $thumbmail = $_FILES["fileToUpload"];
     $content = $_REQUEST['content'];
-    echo $content;
     $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
     $date = new DateTime('NOW');
     $date = $date->format('d/m/Y');
@@ -133,7 +132,11 @@ class backendController{
   }
 
   public function commentRequest($idPost){
-    $content = $_REQUEST['comment'];
+    if(isset($_REQUEST['comment'] )){
+      $content = $_REQUEST['comment'];
+      $_SESSION['successMessage'] = "n";
+      header( "Location: /portfolio/posts/$idPost" );
+    }
     $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
     $date = new DateTime('NOW');
     $date = $date->format('d/m/Y');

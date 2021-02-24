@@ -8,5 +8,3 @@ function popup(id){
   }
 
 }
-
-console.log("yo");

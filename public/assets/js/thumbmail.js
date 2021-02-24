@@ -11,5 +11,4 @@ function readURL(input) {
 }
 $("#uploadThumbmail").change(function() {
   readURL(this);
-  console.log("yo");
 });

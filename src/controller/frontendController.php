@@ -62,7 +62,6 @@ class FrontendController
     public function connexionView(){
         if(isset($_SESSION['user'])){
             header('Location: /portfolio');
-            die();
         }
         if(isset($_SESSION['successMessage'])){
             if($_SESSION['successMessage'] == "n"){
@@ -82,7 +81,6 @@ class FrontendController
     public function connexionRequest(){
         if(isset($_SESSION['user'])){
             header('Location: /portfolio');
-            die();
         }
         $mail = $_REQUEST['mail'];
         $passwordToVerify = $_REQUEST['password'];
