@@ -20,9 +20,7 @@ class CommentsManager
     if($request->execute($params)){
       return("y");
     }
-    else{
-      return('n');
-    }
+    return('n');
   }
 
   public function getComments(){
@@ -63,10 +61,7 @@ public function deleteComment($id){
     if($request->execute($params)){
       return('y');
     }
-    else{
       return('n');
-    }
-
   }
 
 }

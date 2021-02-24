@@ -27,9 +27,7 @@ class UsersManager
         $userBdd = new UserModel($user['id'], $user['firstname'], $user['name'], $user['mail'], $user['admin']);
         return(['y', $userBdd]);
       }
-      else{
-        return(['n']);
-      }
+      return(['n']);
     }
   }
   
@@ -47,9 +45,7 @@ class UsersManager
     if($request->execute($params)){
       return("y");
     }
-    else{
       return('n');
-    }
   }
 
   public function getUsers(){

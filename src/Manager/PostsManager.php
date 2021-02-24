@@ -30,9 +30,7 @@ class PostsManager
     if($request->execute($params)){
       return("y");
     }
-    else{
-      return('n');
-    }
+    return('n');
   }
 
   public function getPosts(){
@@ -68,18 +66,14 @@ class PostsManager
       if($request->execute($params)){
         return("y");
       }
-      else{
-        return('n');
-      }
+      return('n');
     }
     $request = $this->database->prepare("UPDATE posts SET title = :title, description = :description, chapo = :chapo, lastMaj = :lastMaj WHERE id = :id");
     $params = [':id' => $id, ':title' => $title, ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
     if($request->execute($params)){
       return("y");
     }
-    else{
-      return('n');
-    }
+    return('n');
   }
 
   public function deletePost($id){
@@ -88,10 +82,7 @@ class PostsManager
     if($request->execute($params)){
       return('y');
     }
-    else{
-      return('n');
-    }
-
+    return('n');
   }
 
 }
