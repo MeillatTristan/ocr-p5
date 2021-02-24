@@ -130,10 +130,13 @@ class FrontendController
     }
 
     public function inscriptionRequest(){
-        $name = $_POST['nom'];
-        $firstname = $_POST['prenom'];
-        $mail = $_POST['mail'];
-        $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['mail']) || isset($_POST['password'])){
+            $name = $_POST['nom'];
+            $firstname = $_POST['prenom'];
+            $mail = $_POST['mail'];
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        }
+       
 
         $return = $this->usersManager->createUser($name, $firstname, $mail, $password);
         if($return == "y"){
@@ -149,10 +152,14 @@ class FrontendController
     }
 
     public function sendmail(){
-        $nom = $_REQUEST['nom'];
-        $prenom = $_REQUEST['prenom'];
-        $phone = $_REQUEST['phone'];
-        $mail = $_REQUEST['email'];
+        if(isset($_POST['nom']) || isset($_POST['prenom']) || isset($_POST['email']) || isset($_POST['phone'])){
+            $nom = $_REQUEST['nom'];
+            $prenom = $_REQUEST['prenom'];
+            $phone = $_REQUEST['phone'];
+            $mail = $_REQUEST['email'];
+        }
+
+        
         $content = "mail :" . $mail . "<br> Phone : ". $phone . "<br> Message : " .$_REQUEST['message'];
 
         $headers = "From: tristan.meillat28@gmail.com";
