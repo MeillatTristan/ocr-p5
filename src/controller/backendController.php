@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Service\TwigRender;
-use App\Model\UsersManager;
+use App\Manager\UsersManager;
 use DateTime;
-use App\Model\PostsManager;
-use App\Model\CommentsManager;
+use App\Manager\PostsManager;
+use App\Manager\CommentsManager;
 
 class backendController{
   private $renderer;

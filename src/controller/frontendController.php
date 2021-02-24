@@ -3,9 +3,9 @@
 namespace App\Controller;
 
 use App\Service\TwigRender;
-use App\Model\UsersManager;
-use App\Model\PostsManager;
-use App\Model\CommentsManager;
+use App\Manager\UsersManager;
+use App\Manager\PostsManager;
+use App\Manager\CommentsManager;
 
 class FrontendController
 {

@@ -2,7 +2,6 @@
 
 namespace App\router;
 
-use App\controller\homeController;
 use App\router\RouterException;
 
 
