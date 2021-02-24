@@ -5,7 +5,7 @@ function readURL(input) {
           $("#containerPreview").css("background-image", "url("+e.target.result +")");
           $("#containerPreview").hide();
           $("#containerPreview").fadeIn(650);
-      }
+      };
       reader.readAsDataURL(input.files[0]);
   }
 }
