@@ -76,15 +76,15 @@
     </div>
   </div>
   <div class="containerForm">
-    <form action="/portfolio" method="post">
+    <form action="/portfolio/sendmail" method="post">
       <h2>Me contacter</h2>
       <div class="containerName">
-        <input type="text" name="nom" placeholder="Nom">
-        <input type="text" name="prenom" placeholder="Prénom">
+        <input type="text" name="nom" placeholder="Nom" required>
+        <input type="text" name="prenom" placeholder="Prénom" required>
       </div>
-      <input type="mail" name="email" placeholder="Email">
-      <input type="text" placeholder="Téléphone" pattern="(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}">
-      <textarea name="message" id="message" placeholder="Votre message..." cols="30" rows="10"></textarea>
+      <input type="mail" name="email" placeholder="Email" required>
+      <input type="text" placeholder="Téléphone" name="phone" pattern="(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}" required>
+      <textarea name="message" id="message" placeholder="Votre message..." cols="30" rows="10" required ></textarea>
       <input type="submit" placeholder="Envoyer">
     </form>
   </div>

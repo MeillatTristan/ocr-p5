@@ -63,10 +63,11 @@ class backendController{
     $chapo = $_REQUEST['chapo'];
     $thumbmail = $_FILES["fileToUpload"];
     $content = $_REQUEST['content'];
+    echo $content;
     $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
     $date = new DateTime('NOW');
     $date = $date->format('d/m/Y');
-    $return = $this->postsManager->createPost($title, $thumbmail, $chapo, $content, $author, $date);
+    $return = $this->postsManager->createPost($title, $thumbmail, $content, $chapo, $author, $date);
      
     unset($_FILES["fileToUpload"]);
 
@@ -173,6 +174,11 @@ class backendController{
 
   public function adminRightChange($id){
     $this->usersManager->rightChange($id);
+    header("Location: /portfolio/manageUsers");
+  }
+
+  public function deleteUser($id){
+    $this->usersManager->deleteUser($id);
     header("Location: /portfolio/manageUsers");
   }
 

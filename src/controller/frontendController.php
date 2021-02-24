@@ -57,28 +57,7 @@ class FrontendController
         $post = $this->postsManager->getPost($id);
         $this->renderer->render('post', ['post' => $post, 'id' => $id, 'comments' => $comments]);
         }
-}
-
-    public function sendMail()
-    {
-        if (empty($_POST['nom']) || empty($_POST['prenom']) || empty($_POST['email']) || empty($_POST['message']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['flash']['danger'] = 'Tous les champs ne sont pas remplis ou corrects.';
-        } else {
-            $nom = strip_tags(htmlspecialchars($_POST['nom']));
-            $prenom = strip_tags(htmlspecialchars($_POST['prenom']));
-            $email = strip_tags(htmlspecialchars($_POST['email']));
-            $message = strip_tags(htmlspecialchars($_POST['message']));
-            $headers = "From: VotreGmailId@gmail.com";
-            $dest = "tristan.meillat@sfr.fr";
-            $sujet = "message de " . $nom . $prenom;
-
-            if (mail($dest, $sujet, $$message, $headers)) {
-              echo "Email envoyé avec succès à $dest ...";
-            } else {
-              echo "Échec de l'envoi de l'email...";
-            }
-        }
-    }
+    } 
 
     public function connexionView(){
         if(isset($_SESSION['user'])){
@@ -169,5 +148,28 @@ class FrontendController
             $_SESSION['successMessage'] = "n";
         }
         header( "Location: /portfolio/inscription" );
+    }
+
+    public function sendmail(){
+        $nom = $_REQUEST['nom'];
+        $prenom = $_REQUEST['prenom'];
+        $phone = $_REQUEST['phone'];
+        $mail = $_REQUEST['email'];
+        $content = "mail :" . $mail . "<br> Phone : ". $phone . "<br> Message : " .$_REQUEST['message'];
+
+        $headers = "From: tristan.meillat28@gmail.com";
+        $dest = "tristan.meillat@sfr.fr";
+        $sujet = "message de " . $nom . $prenom . $mail;
+
+        if (mail($dest, $sujet, $content, $headers)) {
+            echo "Email envoyé avec succès à $dest ...";
+        } else {
+            echo "Échec de l'envoi de l'email...";
+        }
+    }
+
+
+    public function mentionsLegalesView(){
+        $this->renderer->render('mentionsLegales');
     }
 }

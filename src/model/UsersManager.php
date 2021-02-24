@@ -79,8 +79,12 @@ class UsersManager
       $params = [':admin' => 'y', ':id' => $id];
       $request->execute($params);
     }
-
-
+  }
+  
+  public function deleteUser($id){
+    $request = $this->database->prepare("DELETE FROM users WHERE id=:id");
+    $params = [':id' => $id];
+    $request->execute($params);
   }
 
 }
