@@ -75,7 +75,7 @@ nav ul li a {
   font-weight: 500;
 }
 
-a.active,a:hover {
+a.active, a:hover {
   transition: .5s;
   color: #19191b;
 }
@@ -138,7 +138,7 @@ a.active,a:hover {
     top: 80px;
     left: -100%;
     text-align: center;
-    transition: all .5s;
+    transition: all 0.5s;
   }
 
   nav ul li {
@@ -151,7 +151,7 @@ a.active,a:hover {
     font-size: 20px;
   }
 
-  a:hover,a.active {
+  a:hover, a.active {
     background: none;
     color: white;
   }
@@ -266,8 +266,10 @@ footer .cardFooter a:hover {
 
 .containerHeaderHome .containerTitle .socialList .firstChild:after  {
   position: absolute;
-  top: -4px; bottom: -4px;
-  left: -4px; right: -4px;
+  top: -4px; 
+  bottom: -4px;
+  left: -4px; 
+  right: -4px;
   background: linear-gradient(to left, #0d669b 0%, #cdbc82 100%);
   content: '';
   z-index: -1;
@@ -346,7 +348,7 @@ footer .cardFooter a:hover {
 }
 
 .containerDescription .about .containerContent {
-  padding: 0px 20px;
+  padding: 0 20px;
 }
 
 .containerDescription .about .containerContent p {
@@ -388,7 +390,7 @@ footer .cardFooter a:hover {
   color: white;
   transition: 0.3s;
   font-size: 35px;
-  font-weight:700;
+  font-weight: 700;
 
 }
 
@@ -461,7 +463,7 @@ footer .cardFooter a:hover {
 
 .containerForm input, .containerForm textarea, textarea {
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: white;
   border: none;
   border-bottom: solid 1px rgb(175, 175, 175);
@@ -515,9 +517,9 @@ footer .cardFooter a:hover {
 
 .containerFormConnexion {
   background-color: #262629;
-  -webkit-box-shadow: 0px 0px 30px -4px#262629;
-  -moz-box-shadow: 0px 0px 30px -4px#262629;
-  box-shadow: 0px 0px 30px -4px#262629;
+  -webkit-box-shadow:0 0 30px -4px#262629;
+  -moz-box-shadow:0 0 30px -4px#262629;
+  box-shadow:0 0 30px -4px#262629;
   width: 600px;
   padding: 30px;
   min-height: 500px;
@@ -541,7 +543,7 @@ footer .cardFooter a:hover {
 .containerFormConnexion form input {
   width: 80%;
   padding: 10px;
-  background-color:transparent;
+  background-color: transparent;
   color: white;
   border: none;
   border-bottom: solid 1px rgb(175, 175, 175);
@@ -586,7 +588,7 @@ footer .cardFooter a:hover {
 }
 
 .containerFormConnexion .inscriptionTitle {
-  margin-bottom: 0px;
+  margin-bottom:0 ;
 }
 
 .containerFormConnexion .successMessage {
