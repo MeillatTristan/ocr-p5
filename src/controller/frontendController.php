@@ -157,19 +157,18 @@ class FrontendController
             $prenom = $_REQUEST['prenom'];
             $phone = $_REQUEST['phone'];
             $mail = $_REQUEST['email'];
-        }
+            $content = "mail :" . $mail . "<br> Phone : ". $phone . "<br> Message : " .$_REQUEST['message'];
 
-        
-        $content = "mail :" . $mail . "<br> Phone : ". $phone . "<br> Message : " .$_REQUEST['message'];
+            $headers = "From: tristan.meillat28@gmail.com";
+            $dest = "tristan.meillat@sfr.fr";
+            $sujet = "message de " . $nom . $prenom . $mail;
 
-        $headers = "From: tristan.meillat28@gmail.com";
-        $dest = "tristan.meillat@sfr.fr";
-        $sujet = "message de " . $nom . $prenom . $mail;
-
-        if (mail($dest, $sujet, $content, $headers)) {
-            echo "Email envoyé avec succès à $dest ...";
-        } else {
-            echo "Échec de l'envoi de l'email...";
+            if (mail($dest, $sujet, $content, $headers)) {
+                echo "Email envoyé avec succès à $dest ...";
+            } else {
+                echo "Échec de l'envoi de l'email...";
+            }
+            return;
         }
     }
 
