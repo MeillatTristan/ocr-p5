@@ -20,7 +20,7 @@ class FrontendController
         $this->postsManager = new PostsManager();
         $this->commentsManager = new CommentsManager();
 
-        if (session_status() == PHP_SESSION_NONE) {
+        if (!isset($_SESSION)) {
             session_start();
         }
     }

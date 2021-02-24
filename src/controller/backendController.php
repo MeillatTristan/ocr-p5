@@ -20,17 +20,15 @@ class backendController{
     $this->postsManager = new PostsManager();
     $this->commentsManager = new CommentsManager();
 
-    if (session_status() == PHP_SESSION_NONE) {
+    if (!isset($_SESSION)) {
         session_start();
     }
 
     if(!isset($_SESSION['user'])){
       header('Location: /portfolio');
-      exit();
     }
     if($_SESSION['user']->admin != 'y'){
       header('Location: /portfolio');
-      exit();
     }
   }
 
