@@ -45,6 +45,4 @@ $router->get('/manageUsers', 'Backend#manageUsers');
 $router->get('/adminRightChange/:id', 'Backend#adminRightChange');
 $router->get('/deleteUser/:id', 'Backend#deleteUser');
 
-
-
 $router->run();
