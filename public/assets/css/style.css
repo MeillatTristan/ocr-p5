@@ -560,7 +560,7 @@ textarea {
 .containerFormConnexion form input::placeholder,
 .containerFormConnexion form input[type='submit']::placeholder {
   color: #58585f;
-  font-family: "montserrat";
+  font-family: "montserrat", sans-serif;
 }
 
 .containerFormConnexion form input[type='submit'] {
@@ -644,7 +644,6 @@ textarea {
   margin-right: auto;
   margin-left: auto;
   display: block;
-
 }
 
 .containerPosts .postCard .containerText {
@@ -681,7 +680,6 @@ textarea {
   color: white;
   transition: 0.3s;
 }
-
 
 h1 {
   font-size: 40px;
