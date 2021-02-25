@@ -77,28 +77,28 @@ class backendController{
     header( "Location: /portfolio/adminPostForm" );
   }
 
-  public function modifPostView($id){
+  public function modifPostView($idPost){
     if(isset($_SESSION['successMessage'])){
       if($_SESSION['successMessage'] == "y"){
           $successMessage = "Votre article à bien été Modifié !";
           unset($_SESSION['successMessage']);
-          $post = $this->postsManager->getPost($id);
-          $this->renderer->render('adminPostFormModif', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $id]);
+          $post = $this->postsManager->getPost($idPost);
+          $this->renderer->render('adminPostFormModif', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $idPost]);
       }
       else if($_SESSION['successMessage'] == "n"){
           $successMessage = 'Une erreur est survenu, veuillez réessayer.';
           unset($_SESSION['successMessage']);
-          $post = $this->postsManager->getPost($id);
-          $this->renderer->render('adminPostFormModif', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $id]);
+          $post = $this->postsManager->getPost($idPost);
+          $this->renderer->render('adminPostFormModif', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $idPost]);
       }
     }
     else{
-      $post = $this->postsManager->getPost($id);
-      $this->renderer->render('adminPostFormModif', ['post' => $post, 'id' => $id]);
+      $post = $this->postsManager->getPost($idPost);
+      $this->renderer->render('adminPostFormModif', ['post' => $post, 'id' => $idPost]);
     }
   }
 
-  public function modifPostRequest($id){
+  public function modifPostRequest($idPost){
     $title = $_REQUEST['title'];
     $chapo = $_REQUEST['chapo'];
 
@@ -112,18 +112,18 @@ class backendController{
     $content = $_REQUEST['content'];
     $date = new DateTime('NOW');
     $date = $date->format('d/m/Y');
-    $return = $this->postsManager->modifPost($id, $title, $thumbmail, $content, $chapo, $date);
+    $return = $this->postsManager->modifPost($idPost, $title, $thumbmail, $content, $chapo, $date);
     if($return == "y"){
       $_SESSION['successMessage'] = "y";
     }
     else{
         $_SESSION['successMessage'] = "n";
     }
-    header( "Location: /portfolio/adminPostFormModif/$id" );
+    header( "Location: /portfolio/adminPostFormModif/$idPost" );
   }
 
-  public function deletePost($id){
-    $return = $this->postsManager->deletePost($id);
+  public function deletePost($idPost){
+    $return = $this->postsManager->deletePost($idPost);
     
     if($return == "n"){
       $_SESSION['successMessage'] = "n";
