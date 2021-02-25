@@ -57,24 +57,28 @@ class backendController{
   }
 
   public function postAddRequest(){
-    $title = $_REQUEST['title'];
-    $chapo = $_REQUEST['chapo'];
-    $thumbmail = $_FILES["fileToUpload"];
-    $content = $_REQUEST['content'];
-    $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
-    $date = new DateTime('NOW');
-    $date = $date->format('d/m/Y');
-    $return = $this->postsManager->createPost($title, $thumbmail, $content, $chapo, $author, $date);
-     
-    unset($_FILES["fileToUpload"]);
+    if(isset($_REQUEST['title']) and isset($_REQUEST['chapo']) and isset($_FILES['fileToUpload'])and isset($_REQUEST['content']) and isset($_SESSION['user'])){
+      $title = $_REQUEST['title'];
+      $chapo = $_REQUEST['chapo'];
+      $thumbmail = $_FILES["fileToUpload"];
+      $content = $_REQUEST['content'];
+      $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
+      $date = new DateTime('NOW');
+      $date = $date->format('d/m/Y');
+      $return = $this->postsManager->createPost($title, $thumbmail, $content, $chapo, $author, $date);
+      
+      unset($_FILES["fileToUpload"]);
 
-    if($return == "y"){
-      $_SESSION['successMessage'] = "y";
+      if($return == "y"){
+        $_SESSION['successMessage'] = "y";
+      }
+
+      $_SESSION['successMessage'] = "n";
+
+      header( "Location: /portfolio/adminPostForm" );
     }
-    else{
-        $_SESSION['successMessage'] = "n";
-    }
-    header( "Location: /portfolio/adminPostForm" );
+    header("Location: /portfolio/");
+    
   }
 
   public function modifPostView($idPost){
