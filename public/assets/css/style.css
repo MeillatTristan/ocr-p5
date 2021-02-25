@@ -77,7 +77,7 @@ nav ul li a {
 
 a.active,
 a:hover {
-  transition: .5s;
+  transition: 0.5s;
   color: #19191b;
 }
 
@@ -100,7 +100,6 @@ a:hover {
   background-color: #0d669b;
   opacity: 60%;
 }
-
 
 .checkbtn {
   font-size: 30px;
@@ -475,7 +474,7 @@ textarea {
   border: none;
   border-bottom: solid 1px rgb(175, 175, 175);
   margin-top: 10px;
-  font-family: "montserrat";
+  font-family: "montserrat", sans-serif;
   resize: none;
 }
 
@@ -560,7 +559,8 @@ textarea {
   font-size: 17px;
 }
 
-.containerFormConnexion form input::placeholder, .containerFormConnexion form input[type='submit']::placeholder {
+.containerFormConnexion form input::placeholder,
+.containerFormConnexion form input[type='submit']::placeholder {
   color: #58585f;
   font-family: "montserrat";
 }
@@ -753,7 +753,7 @@ h1 {
   transition: 0.3s;
   width: 25%;
   margin-top: 30px;
-  margin-left:auto;
+  margin-left: auto;
   margin-right: auto;
   font-size: 17px;
   font-weight: 500;
