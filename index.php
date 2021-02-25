@@ -20,7 +20,7 @@ $router = new Router($_GET['url']);
 // routes frontend
 $router->get('/', 'frontend#homepageView');
 $router->post('/sendmail', 'frontend#sendmail');
-$router->get('/posts', 'frontend#PostsView');
+$router->get('/posts', 'frontend#postsView');
 $router->get('posts/:id', 'frontend#postView');
 $router->post('/contactForm', 'frontend#sendmail');
 $router->get('/connexion', 'frontend#connexionView');

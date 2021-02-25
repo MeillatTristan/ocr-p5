@@ -30,7 +30,7 @@ class FrontendController
         $this->renderer->render('homepage');
     }
 
-    public function PostsView()
+    public function postsView()
     {
         $posts = $this->postsManager->getPosts();
         $this->renderer->render('posts', ['posts' => array_reverse($posts)]);
@@ -86,7 +86,6 @@ class FrontendController
         $return = $this->usersManager->loginUser($mail, $passwordToVerify);
         if($return[0] == "y"){
             $_SESSION['user'] = $return[1];
-            var_dump($_SESSION['user']);
             header('Location: /portfolio');
             return("");
         }
