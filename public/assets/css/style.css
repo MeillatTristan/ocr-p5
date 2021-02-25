@@ -463,7 +463,7 @@ footer .cardFooter a:hover {
   height: 50px;
 }
 
-.containerForm form .containerName input,
+.containerForm form input,
 .containerForm form textarea,
 textarea {
   padding: 10px;
