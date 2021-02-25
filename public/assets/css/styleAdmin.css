@@ -1,4 +1,4 @@
-*{
+*  {
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -8,25 +8,25 @@
 }
 
 
-header{
+header {
     width: 15%;
     position: fixed;
 }
 
-a{
+a {
     color: #287ff1;
     font-weight: 500;
 }
 
-a:hover{
+a:hover {
     text-decoration: underline;
 }
 
-.space{
+.space {
     height: 200vh;
 }
 
-header h1{
+header h1 {
     background-color: #3e8ef7;
     color: white;
     height: 80px;
@@ -37,7 +37,7 @@ header h1{
     font-size: 24px;
 }
 
-header .sidebar{
+header .sidebar {
     display: flex;
     flex-direction: column;
     padding-top: 20px;
@@ -47,7 +47,7 @@ header .sidebar{
     background-color: #222c32;
 }
 
-header .sidebar li{
+header .sidebar li {
     padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -55,24 +55,24 @@ header .sidebar li{
 
 }
 
-header .sidebar li:hover{
+header .sidebar li:hover {
     background-color: #263238;
     transition: 0.2s;
 }
 
-header .sidebar li a{
+header .sidebar li a {
     color: white;
     font-size: 16px;
     display: flex;
     align-items: center;
 }
 
-header .sidebar li a i{
+header .sidebar li a i {
     font-size: 30px;
     margin-right: 20px;
 }
 
-.topbar{
+.topbar {
     height: 80px;
     display: flex;
     align-items: center;
@@ -81,7 +81,7 @@ header .sidebar li a i{
     box-shadow: 0 2px 4px rgba(0,0,0,.08);
 }
 
-.topbar li a{
+.topbar li a {
     color: #434950;
     padding: 15px 30px;
     font-weight: 400;
@@ -93,49 +93,49 @@ header .sidebar li a i{
     font-size: 17px;
 }
 
-.topbar li a:hover{
+.topbar li a:hover {
     color: #2c3135;
 }
 
-.topbar li a i{
+.topbar li a i {
     font-size: 30px;
     margin-right: 10px;
 }
 
-.containerGlobal{
+.containerGlobal {
     margin-left: 15%;
 }
 
-.containerBlock{
+.containerBlock {
     padding: 30px;
 }  
 
-h2{
+h2 {
     width: max-content;
     border-bottom: #3e8ef7 3px solid;
     font-size: 27px;
 }
 
-.containerBlock h2{
+.containerBlock h2 {
     margin: 10px 0 80px 50px;
 }
 
-.containerBlock p{
+.containerBlock p {
     margin-left: 50px;
     margin-top: -50px;
     font-weight: 500;
     font-size: 17px;
 }
 
-.containerBlock .errorMessage{
+.containerBlock .errorMessage {
     color : #fc4d3c;
 }
 
-.containerBlock .successMessage{
+.containerBlock .successMessage {
     color: #479860;
 }
 
-.containerBlock form{
+.containerBlock form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -143,13 +143,13 @@ h2{
     margin-top: 30px;
 }
 
-.containerBlock form .containerFirstBlock{
+.containerBlock form .containerFirstBlock {
     display: flex;
     width: 100%;
     justify-content: space-around;
 }
 
-.containerBlock form .containerInput{
+.containerBlock form .containerInput {
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -157,12 +157,12 @@ h2{
 
 
 
-.containerBlock form .thumbmail{
+.containerBlock form .thumbmail {
     width: 35%;
     height: 400px;
 }
 
-.containerBlock form .thumbmail #containerPreview{
+.containerBlock form .thumbmail #containerPreview {
     background-color: #f5f5f5;
     border: #3e8ef7 2px solid;
     width: 90%;
@@ -171,7 +171,7 @@ h2{
     box-shadow: 0px 0px 18px -7px rgba(0,0,0,0.1);
 }
 
-input, textarea{
+input, textarea {
     padding: 20px;
     margin-top: 20px;
     resize: none;
@@ -179,33 +179,33 @@ input, textarea{
     border-bottom: 1px #222c32 solid;
 }
 
-.containerBlock input{
+.containerBlock input {
     width: 90%;
     border-color: #dad9d9;
     font-size: 16px;
 }
 
-.containerBlock form textarea{
+.containerBlock form textarea {
     width: 90%;
     height: 600px;
     border: #dad9d9 solid 1px;
 }
 
-input::placeholder, textarea::placeholder{
+input::placeholder, textarea::placeholder {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
 }
 
-input:focus-visible{
+input:focus-visible {
     border: #e0e3e6;
     border-bottom: none;
 }
 
-.containerBlock textarea:focus-visible{
+.containerBlock textarea:focus-visible {
     border: none;
 }
 
-.containerBlock form .validate{
+.containerBlock form .validate {
     width: 50%;
     background-color: #3e8ef7;
     border: none;
@@ -214,22 +214,22 @@ input:focus-visible{
     cursor: pointer;
 }
 
-.containerTablePosts{
+.containerTablePosts {
     padding: 50px;
 }
 
-.containerTablePosts h2{
+.containerTablePosts h2 {
     margin-bottom: 20px;
 }
 
-.containerTablePosts .containerTable{
+.containerTablePosts .containerTable {
     display: flex;
     flex-direction: column;
     border: 1px solid #ccd0d4;
     margin-top: 30px;
 }
 
-.containerTablePosts .containerTable .containerHeaderTable{
+.containerTablePosts .containerTable .containerHeaderTable {
     border-bottom: 1px solid #ccd0d4;
     display: flex;
     height: 40px;
@@ -237,55 +237,55 @@ input:focus-visible{
     align-items: center;
 }
 
-.containerTablePosts .content{
+.containerTablePosts .content {
     width: 30%;
 }
 
-.containerTablePosts .title{
+.containerTablePosts .title {
     width: 20%;
 }
 
-.containerTablePosts .lastModif, .containerTablePosts .dateCreate{
+.containerTablePosts .lastModif, .containerTablePosts .dateCreate {
     width: 10%;
 }
 
-.containerTablePosts .author, .containerTablePosts .modif, .containerTablePosts .delete{
+.containerTablePosts .author, .containerTablePosts .modif, .containerTablePosts .delete {
     width: 10%;
 }
 
-.containerTablePosts .validate, .containerTablePosts .id, .containerTablePosts .name, .containerTablePosts .mail, .containerTablePosts .admin{
+.containerTablePosts .validate, .containerTablePosts .id, .containerTablePosts .name, .containerTablePosts .mail, .containerTablePosts .admin {
     width: 10%;
 }
 
-.containerTablePosts .containerTable .containerPosts .comment{
+.containerTablePosts .containerTable .containerPosts .comment {
     height: auto;
     padding: 15px 0;
 }
 
-.containerTablePosts .Y{
+.containerTablePosts .Y {
     color: #479860;
 }
 
-.containerTablePosts .N{
+.containerTablePosts .N {
     color: #fd7a52;
 }
 
-.containerTablePosts .containerPosts .post{
+.containerTablePosts .containerPosts .post {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 40px;
 }
 
-.containerTablePosts .containerPosts .post:nth-child(odd){
+.containerTablePosts .containerPosts .post:nth-child(odd) {
     background-color: #ececec;
 }
 
-.containerTablePosts .containerPosts .delete a{
+.containerTablePosts .containerPosts .delete a {
     cursor: pointer;
 }
 
-.containerTablePosts .popup{
+.containerTablePosts .popup {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -297,7 +297,7 @@ input:focus-visible{
     align-items: center;
 }
 
-.popup .containerContent{
+.popup .containerContent {
     width: 500px;
     height: 300px;
     background-color: white;
@@ -309,14 +309,14 @@ input:focus-visible{
     border-radius: 5px;
 }
 
-.popup .containerContent .button{
+.popup .containerContent .button {
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
 
-.popup .containerContent .button a{
+.popup .containerContent .button a {
     color: white;
     padding: 20px 0px 20px 0px;
     border-radius: 5px;
@@ -326,12 +326,12 @@ input:focus-visible{
     align-items: center;
 }
 
-.popup .containerContent .button .delete{
+.popup .containerContent .button .delete {
     background-color: #fc4d3c;
     cursor: pointer;
 }
 
-.popup .containerContent .button .return{
+.popup .containerContent .button .return {
     background-color: #ccd0d4;
     cursor: pointer;
 }
