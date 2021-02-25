@@ -48,11 +48,9 @@ class CommentsManager
       $params = [':validate' => "n", "id" => $idComment];
       $request->execute($params);
     }
-    else{
-      $request = $this->database->prepare("UPDATE comments SET validate = :validate WHERE id = :id");
-      $params = [':validate' => "y", "id" => $idComment];
-      $request->execute($params);
-    }
+    $request = $this->database->prepare("UPDATE comments SET validate = :validate WHERE id = :id");
+    $params = [':validate' => "y", "id" => $idComment];
+    $request->execute($params);
   }
 
 public function deleteComment($idComment){
