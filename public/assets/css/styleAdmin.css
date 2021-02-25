@@ -7,7 +7,6 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-
 header {
   width: 15%;
   position: fixed;
@@ -52,7 +51,6 @@ header .sidebar li {
   padding-top: 20px;
   padding-bottom: 20px;
   transition: 0.3s;
-
 }
 
 header .sidebar li:hover {
@@ -78,7 +76,7 @@ header .sidebar li a i {
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 
 .topbar li a {
@@ -108,7 +106,7 @@ header .sidebar li a i {
 
 .containerBlock {
   padding: 30px;
-}  
+}
 
 h2 {
   width: max-content;
@@ -132,7 +130,7 @@ h2 {
 }
 
 .containerBlock .successMessage {
-  color: #479860;
+  color : #479860;
 }
 
 .containerBlock form {
@@ -168,10 +166,11 @@ h2 {
   width: 90%;
   height: 300px;
   background-size: cover;
-  box-shadow: 0px 0px 18px -7px rgba(0,0,0,0.1);
+  box-shadow: 0 0 18px -7px rgba(0, 0, 0, 0.1);
 }
 
-input, textarea {
+input,
+textarea {
   padding: 20px;
   margin-top: 20px;
   resize: none;
@@ -245,15 +244,19 @@ input:focus-visible {
   width: 20%;
 }
 
-.containerTablePosts .lastModif, .containerTablePosts .dateCreate {
+.containerTablePosts .lastModif,
+.containerTablePosts .dateCreate {
   width: 10%;
 }
 
-.containerTablePosts .author, .containerTablePosts .modif, .containerTablePosts .delete {
-  width: 10%;
-}
-
-.containerTablePosts .validate, .containerTablePosts .id, .containerTablePosts .name, .containerTablePosts .mail, .containerTablePosts .admin {
+.containerTablePosts .author,
+.containerTablePosts .modif,
+.containerTablePosts .delete, 
+.containerTablePosts .validate,
+.containerTablePosts .id,
+.containerTablePosts .name,
+.containerTablePosts .mail,
+.containerTablePosts .admin {
   width: 10%;
 }
 

@@ -203,7 +203,6 @@ footer .cardFooter a:hover {
   transition: 0.2s;
 }
 
-
 .containerGlobal {
   padding: 50px 100px;
   min-height: 100vh;
@@ -395,7 +394,6 @@ footer .cardFooter a:hover {
   transition: 0.3s;
   font-size: 35px;
   font-weight: 700;
-
 }
 
 .containerDescription .about .containerFile a:hover {
@@ -555,7 +553,7 @@ textarea {
   border: none;
   border-bottom: solid 1px rgb(175, 175, 175);
   margin-top: 20px;
-  font-family: "montserrat";
+  font-family: "montserrat", sans-serif;
   font-size: 17px;
 }
 
