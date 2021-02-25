@@ -25,9 +25,13 @@ Les principales fonctionnalités du blog peuvent être décomposer en trois part
 
 ## prérequis
 
-
+PHP avec composer est requis pour pouvoir installer le projet.
 
 ## installation
+
+### Etape 1 : 
+```bash
+
 
 ## paramétrage
 
