@@ -153,8 +153,6 @@ h2 {
   width: 50%;
 }
 
-
-
 .containerBlock form .thumbmail {
   width: 35%;
   height: 400px;
@@ -190,7 +188,8 @@ textarea {
   border: #dad9d9 solid 1px;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
 }
