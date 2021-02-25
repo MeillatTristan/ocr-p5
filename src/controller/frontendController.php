@@ -36,27 +36,25 @@ class FrontendController
         $this->renderer->render('posts', ['posts' => array_reverse($posts)]);
     }
 
-    public function postView($id){
+    public function postView($idPost){
         $comments = $this->commentsManager->getComments();
 
         if(isset($_SESSION['successMessage'])){
             if($_SESSION['successMessage'] == "y"){
                 $successMessage = "Votre commentaire est bien pris en compte, il est soumis à validation !";
                 unset($_SESSION['successMessage']);
-                $post = $this->postsManager->getPost($id);
-                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $id, 'comments' => $comments]);
+                $post = $this->postsManager->getPost($idPost);
+                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "successMessage", 'post' => $post, 'id' => $idPost, 'comments' => $comments]);
             }
             else if($_SESSION['successMessage'] == "n"){
                 $successMessage = 'Une erreur est survenu, veuillez réessayer.';
                 unset($_SESSION['successMessage']);
-                $post = $this->postsManager->getPost($id);
-                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $id, 'comments' => $comments]);
+                $post = $this->postsManager->getPost($idPost);
+                $this->renderer->render('post', ["successMessage" => $successMessage, "class" => "errorMessage", 'post' => $post, 'id' => $idPost, 'comments' => $comments]);
             }
         }
-        else{
-        $post = $this->postsManager->getPost($id);
-        $this->renderer->render('post', ['post' => $post, 'id' => $id, 'comments' => $comments]);
-        }
+        $post = $this->postsManager->getPost($idPost);
+        $this->renderer->render('post', ['post' => $post, 'id' => $idPost, 'comments' => $comments]);
     } 
 
     public function connexionView(){

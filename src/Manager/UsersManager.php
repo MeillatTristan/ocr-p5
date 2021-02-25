@@ -70,11 +70,9 @@ class UsersManager
       $params = [':admin' => 'n', ':id' => $idUser];
       $request->execute($params);
     }
-    else{
-      $request = $this->database->prepare('UPDATE users SET admin = :admin WHERE id = :id ');
-      $params = [':admin' => 'y', ':id' => $idUser];
-      $request->execute($params);
-    }
+    $request = $this->database->prepare('UPDATE users SET admin = :admin WHERE id = :id ');
+    $params = [':admin' => 'y', ':id' => $idUser];
+    $request->execute($params);
   }
   
   public function deleteUser($idUser){

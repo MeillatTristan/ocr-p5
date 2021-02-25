@@ -51,9 +51,7 @@ class backendController{
           $this->renderer->render('adminPostForm', ["successMessage" => $successMessage, "class" => "errorMessage"]);
       }
     }
-    else{
-        $this->renderer->render('adminPostForm');
-    }
+    $this->renderer->render('adminPostForm');
   }
 
   public function postAddRequest(){
