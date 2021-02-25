@@ -25,13 +25,24 @@ Les principales fonctionnalités du blog peuvent être décomposer en trois part
 
 ## prérequis
 
-PHP avec composer est requis pour pouvoir installer le projet.
+PHP avec composer est requis pour pouvoir installer le projet ainsi que serveur fictif tel que wamp.
 
 ## installation
 
 ### Etape 1 : 
-```bash
 
+Cloner le projet sur votre serveur.
+```bash
+git clone https://github.com/MeillatTristan/ocr-p5.git
+```
+
+### Etape 2 :
+
+Créer une base donnée et importé le fichier portfolio.sql
+
+### Etape 3 : 
+
+Editer le fichier ```src\Database\ConfigDatabase.php```
 
 ## paramétrage
 
