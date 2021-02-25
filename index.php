@@ -18,32 +18,32 @@ $router = new Router($_GET['url']);
 
 
 // routes frontend
-$router->get('/', 'frontend#homepageView');
-$router->post('/sendmail', 'frontend#sendmail');
-$router->get('/posts', 'frontend#postsView');
-$router->get('posts/:id', 'frontend#postView');
-$router->post('/contactForm', 'frontend#sendmail');
-$router->get('/connexion', 'frontend#connexionView');
-$router->get('/inscription', 'frontend#inscriptionView');
-$router->post('/inscriptionRequest', 'frontend#inscriptionRequest');
-$router->post('/connexionRequest', 'frontend#connexionRequest');
-$router->get('/deconnexion', 'frontend#deconnexionRequest');
-$router->get('mentions-legales', 'frontend#mentionsLegalesView');
+$router->get('/', 'Frontend#homepageView');
+$router->post('/sendmail', 'Frontend#sendmail');
+$router->get('/posts', 'Frontend#postsView');
+$router->get('posts/:id', 'Frontend#postView');
+$router->post('/contactForm', 'Frontend#sendmail');
+$router->get('/connexion', 'Frontend#connexionView');
+$router->get('/inscription', 'Frontend#inscriptionView');
+$router->post('/inscriptionRequest', 'Frontend#inscriptionRequest');
+$router->post('/connexionRequest', 'Frontend#connexionRequest');
+$router->get('/deconnexion', 'Frontend#deconnexionRequest');
+$router->get('mentions-legales', 'Frontend#mentionsLegalesView');
 
 // routes backend
-$router->get('/adminPosts', 'backend#adminPostsView');
-$router->get('/adminPostForm', 'backend#adminPostFormView');
-$router->post('/postsRequest', 'backend#postAddRequest');
-$router->get('/adminPostFormModif/:id', 'backend#modifPostView');
-$router->post('/modifPostRequest/:id', 'backend#modifPostRequest');
-$router->get('/adminPostDelete/:id', 'backend#deletePost');
-$router->post('commentRequest/:id', 'backend#commentRequest');
-$router->get('/ManageCommentaire', 'backend#manageComment');
-$router->get('/ManageCommentaireValid/:id', 'backend#manageCommentValid');
-$router->get('/commentDelete/:id', 'backend#deleteComment');
-$router->get('/manageUsers', 'backend#manageUsers');
-$router->get('/adminRightChange/:id', 'backend#adminRightChange');
-$router->get('/deleteUser/:id', 'backend#deleteUser');
+$router->get('/adminPosts', 'Backend#adminPostsView');
+$router->get('/adminPostForm', 'Backend#adminPostFormView');
+$router->post('/postsRequest', 'Backend#postAddRequest');
+$router->get('/adminPostFormModif/:id', 'Backend#modifPostView');
+$router->post('/modifPostRequest/:id', 'Backend#modifPostRequest');
+$router->get('/adminPostDelete/:id', 'Backend#deletePost');
+$router->post('commentRequest/:id', 'Backend#commentRequest');
+$router->get('/ManageCommentaire', 'Backend#manageComment');
+$router->get('/ManageCommentaireValid/:id', 'Backend#manageCommentValid');
+$router->get('/commentDelete/:id', 'Backend#deleteComment');
+$router->get('/manageUsers', 'Backend#manageUsers');
+$router->get('/adminRightChange/:id', 'Backend#adminRightChange');
+$router->get('/deleteUser/:id', 'Backend#deleteUser');
 
 
 

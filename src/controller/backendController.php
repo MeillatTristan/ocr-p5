@@ -8,7 +8,7 @@ use DateTime;
 use App\Manager\PostsManager;
 use App\Manager\CommentsManager;
 
-class backendController{
+class BackendController{
   private $renderer;
   private $usersManager;
   private $postsManager;
