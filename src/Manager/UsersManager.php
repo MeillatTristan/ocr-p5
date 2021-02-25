@@ -57,29 +57,29 @@ class UsersManager
     return $usersArray;
   }
   
-  public function getUser($id){
-    $user = $this->database->query("SELECT * FROM users WHERE id = $id")->fetch();
+  public function getUser($idUser){
+    $user = $this->database->query("SELECT * FROM users WHERE id = $idUser")->fetch();
     $user = new UserModel($user['id'], $user['firstname'], $user['name'], $user['mail'], $user['admin']);
     return $user;
   }
 
-  public function rightChange($id){
-    $user = $this->getUser($id);
+  public function rightChange($idUser){
+    $user = $this->getUser($idUser);
     if($user->admin == 'y'){
       $request = $this->database->prepare('UPDATE users SET admin = :admin WHERE id = :id ');
-      $params = [':admin' => 'n', ':id' => $id];
+      $params = [':admin' => 'n', ':id' => $idUser];
       $request->execute($params);
     }
     else{
       $request = $this->database->prepare('UPDATE users SET admin = :admin WHERE id = :id ');
-      $params = [':admin' => 'y', ':id' => $id];
+      $params = [':admin' => 'y', ':id' => $idUser];
       $request->execute($params);
     }
   }
   
-  public function deleteUser($id){
+  public function deleteUser($idUser){
     $request = $this->database->prepare("DELETE FROM users WHERE id=:id");
-    $params = [':id' => $id];
+    $params = [':id' => $idUser];
     $request->execute($params);
   }
 

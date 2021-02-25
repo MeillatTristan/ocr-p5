@@ -131,17 +131,17 @@ class backendController{
     header( "Location: /portfolio/adminPosts" );
   }
 
-  public function commentRequest($idPost){
+  public function commentRequest($idComment){
     if(isset($_REQUEST['comment'] )){
       $content = $_REQUEST['comment'];
       $_SESSION['successMessage'] = "n";
-      header( "Location: /portfolio/posts/$idPost" );
+      header( "Location: /portfolio/posts/$idComment" );
     }
     $author = $_SESSION['user']->firstname . " " . $_SESSION['user']->name;
     $date = new DateTime('NOW');
     $date = $date->format('d/m/Y');
 
-    $return = $this->commentsManager->createComment($idPost, $content, $author, $date);
+    $return = $this->commentsManager->createComment($idComment, $content, $author, $date);
 
     if($return == "y"){
       $_SESSION['successMessage'] = "y";
@@ -149,7 +149,7 @@ class backendController{
     else{
         $_SESSION['successMessage'] = "n";
     }
-    header( "Location: /portfolio/posts/$idPost" );
+    header( "Location: /portfolio/posts/$idComment" );
   }
 
   public function manageComment(){
@@ -157,14 +157,14 @@ class backendController{
     $this->renderer->render('adminComment', ['comments' => $comments]);
   }
 
-  public function manageCommentValid($id){
-    $this->commentsManager->validateComment($id);
+  public function manageCommentValid($idComment){
+    $this->commentsManager->validateComment($idComment);
     header( "Location: /portfolio/manageCommentaire" );
 
   }
 
-  public function deleteComment($id){
-    $this->commentsManager->deleteComment($id);
+  public function deleteComment($idComment){
+    $this->commentsManager->deleteComment($idComment);
     header( "Location: /portfolio/manageCommentaire" );
   }
 
@@ -173,13 +173,13 @@ class backendController{
     $this->renderer->render('adminUsers', ['users' => $users]);
   }
 
-  public function adminRightChange($id){
-    $this->usersManager->rightChange($id);
+  public function adminRightChange($idUser){
+    $this->usersManager->rightChange($idUser);
     header("Location: /portfolio/manageUsers");
   }
 
-  public function deleteUser($id){
-    $this->usersManager->deleteUser($id);
+  public function deleteUser($idUser){
+    $this->usersManager->deleteUser($idUser);
     header("Location: /portfolio/manageUsers");
   }
 

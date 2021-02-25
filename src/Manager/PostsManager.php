@@ -44,14 +44,14 @@ class PostsManager
     return $postsObjects;
   }
 
-  public function getPost($id){
-    $request = $this->database->query("SELECT * FROM posts WHERE id = $id");
+  public function getPost($idPost){
+    $request = $this->database->query("SELECT * FROM posts WHERE id = $idPost");
     $post = $request->fetch();
     $postObject = new PostModel($post['id'], $post['title'], $post['chapo'], $post['thumbnail'], $post['description'], $post['author'], $post['lastMaj'], $post['dateCreation']);
     return $postObject;
   }
 
-  public function modifPost($id, $title, $thumbnail, $description, $chapo, $date){
+  public function modifPost($idPost, $title, $thumbnail, $description, $chapo, $date){
     if($thumbnail != "n"){
       $target_dir = "C:/wamp64/www/portfolio/public/assets/images/";
       $thumbnail['name'] = $title . "-" . $thumbnail['name'];
@@ -62,14 +62,14 @@ class PostsManager
       }
 
       $request = $this->database->prepare("UPDATE posts SET title = :title, thumbnail = :thumbnail, description = :description, chapo = :chapo, lastMaj = :lastMaj WHERE id = :id");
-      $params = [':id' => $id, ':title' => $title, ':thumbnail' => $thumbnail['name'], ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
+      $params = [':id' => $idPost, ':title' => $title, ':thumbnail' => $thumbnail['name'], ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
       if($request->execute($params)){
         return("y");
       }
       return('n');
     }
     $request = $this->database->prepare("UPDATE posts SET title = :title, description = :description, chapo = :chapo, lastMaj = :lastMaj WHERE id = :id");
-    $params = [':id' => $id, ':title' => $title, ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
+    $params = [':id' => $idPost, ':title' => $title, ':description' => $description, ':chapo' => $chapo, ':lastMaj' => $date];
     if($request->execute($params)){
       return("y");
     }
