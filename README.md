@@ -58,6 +58,7 @@ composer install
 
 Le projet est maintenant fonctionnel, vous pouvez vous connecter en tant qu'administrateur à l'aide du compte d'exemple.
 
+
 ## paramétrage
 
 ## utilisation
