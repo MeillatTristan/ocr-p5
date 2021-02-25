@@ -5,7 +5,11 @@
 
 Dans le cadre du projet 5 de la formation OpenClassrooms "Développeur d'application web" en spécialisation symfony, nous devions créer un blog personnel qui représentera notre portfolio.
 
+### Fonctionnalités 
+
 ## prérequis
+
+
 
 ## installation
 
