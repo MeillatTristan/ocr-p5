@@ -21,14 +21,12 @@ class UsersManager
     if(empty($user)){
       return(['n']);
     }
-    else{
-      $password = $user['password'];
-      if(password_verify($passwordToVerify, $password)){
-        $userBdd = new UserModel($user['id'], $user['firstname'], $user['name'], $user['mail'], $user['admin']);
-        return(['y', $userBdd]);
-      }
-      return(['n']);
+    $password = $user['password'];
+    if(password_verify($passwordToVerify, $password)){
+      $userBdd = new UserModel($user['id'], $user['firstname'], $user['name'], $user['mail'], $user['admin']);
+      return(['y', $userBdd]);
     }
+    return(['n']);
   }
   
   public function createUser($name, $firstname, $mail, $password){
