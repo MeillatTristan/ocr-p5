@@ -49,7 +49,7 @@ nav {
 }
 
 nav .logo img,
-footer img {
+footer .containerFooter .cardFooter img {
   max-height: 110px;
   width: auto;
   margin-left: 50px;
@@ -126,6 +126,7 @@ a:hover {
     font-size: 16px;
   }
 }
+
 @media (max-width: 858px) {
   .checkbtn {
     display: block;
@@ -280,8 +281,10 @@ footer .cardFooter a:hover {
 
 .containerHeaderHome .containerTitle .socialList .secondChild::after {
   position: absolute;
-  top: -4px; bottom: -4px;
-  left: -4px; right: -4px;
+  top: -4px;
+  bottom: -4px;
+  left: -4px;
+  right: -4px;
   background: linear-gradient(to left, #479860 0%, #a26e84 100%);
   content: '';
   z-index: -1;
@@ -384,7 +387,7 @@ footer .cardFooter a:hover {
   justify-content: center;
 }
 
-.containerDescription .about .containerFile a {
+.containerDescription .about .cv .title .containerFile a {
   border: #cdbc82 solid 1px;
   border-radius: 3px;
   background-color: transparent;
@@ -620,7 +623,6 @@ textarea {
   border: 1px solid #242427;
   display: flex;
   height: 400px;
-  display: flex;
   justify-content: space-between;
   transition: 0.1s;
 }
