@@ -34,30 +34,30 @@ class CommentsManager
     return $commentsObjects;
   }
 
-  public function getComment($id){
-    $request = $this->database->query("SELECT * FROM comments WHERE id = $id");
+  public function getComment($idComment){
+    $request = $this->database->query("SELECT * FROM comments WHERE id = $idComment");
     $comment = $request->fetch();
     $commentObject = new CommentModel($comment['id'], $comment['content'], $comment['author'], $comment['date'], $comment['idPost'], $comment['validate']);
     return $commentObject;
   }
 
-  public function validateComment($id){
-    $comment = $this->getComment($id);
+  public function validateComment($idComment){
+    $comment = $this->getComment($idComment);
     if($comment->validate == "y"){
       $request = $this->database->prepare("UPDATE comments SET validate = :validate WHERE id = :id");
-      $params = [':validate' => "n", "id" => $id];
+      $params = [':validate' => "n", "id" => $idComment];
       $request->execute($params);
     }
     else{
       $request = $this->database->prepare("UPDATE comments SET validate = :validate WHERE id = :id");
-      $params = [':validate' => "y", "id" => $id];
+      $params = [':validate' => "y", "id" => $idComment];
       $request->execute($params);
     }
   }
 
-public function deleteComment($id){
+public function deleteComment($idComment){
     $request = $this->database->prepare("DELETE FROM comments WHERE id=:id");
-    $params = [':id' => $id];
+    $params = [':id' => $idComment];
     if($request->execute($params)){
       return('y');
     }
