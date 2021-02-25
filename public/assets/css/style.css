@@ -4,7 +4,6 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
-
 }
 
 body {
@@ -49,7 +48,8 @@ nav {
   width: 100%;
 }
 
-nav .logo img, footer img {
+nav .logo img,
+footer img {
   max-height: 110px;
   width: auto;
   margin-left: 50px;
@@ -75,7 +75,8 @@ nav ul li a {
   font-weight: 500;
 }
 
-a.active, a:hover {
+a.active,
+a:hover {
   transition: .5s;
   color: #19191b;
 }
@@ -151,7 +152,8 @@ a.active, a:hover {
     font-size: 20px;
   }
 
-  a:hover, a.active {
+  a:hover,
+  a.active {
     background: none;
     color: white;
   }
@@ -264,7 +266,7 @@ footer .cardFooter a:hover {
   align-items: center;
 }
 
-.containerHeaderHome .containerTitle .socialList .firstChild:after  {
+.containerHeaderHome .containerTitle .socialList .firstChild::after {
   position: absolute;
   top: -4px;
   bottom: -4px;
@@ -276,7 +278,7 @@ footer .cardFooter a:hover {
   border-radius: 100px;
 }
 
-.containerHeaderHome .containerTitle .socialList .secondChild:after  {
+.containerHeaderHome .containerTitle .socialList .secondChild::after {
   position: absolute;
   top: -4px; bottom: -4px;
   left: -4px; right: -4px;
@@ -461,8 +463,8 @@ footer .cardFooter a:hover {
   height: 50px;
 }
 
-.containerForm input,
-.containerForm textarea,
+.containerForm form .containerName input,
+.containerForm form textarea,
 textarea {
   padding: 10px;
   background-color: transparent;
@@ -477,7 +479,7 @@ textarea {
 .containerForm input::placeholder,
 .containerForm textarea::placeholder {
   color: #58585f;
-  font-family: "montserrat";
+  font-family: "montserrat", sans-serif;
   font-size: 18px;
 }
 
