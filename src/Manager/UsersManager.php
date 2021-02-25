@@ -78,5 +78,4 @@ class UsersManager
     $params = [':id' => $idUser];
     $request->execute($params);
   }
-
 }

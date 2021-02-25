@@ -84,5 +84,4 @@ class PostsManager
     }
     return('n');
   }
-
 }

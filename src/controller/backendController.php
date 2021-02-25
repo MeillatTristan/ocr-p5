@@ -184,5 +184,4 @@ class BackendController{
     $this->usersManager->deleteUser($idUser);
     header("Location: /portfolio/manageUsers");
   }
-
 }
