@@ -57,7 +57,7 @@ class backendController{
   }
 
   public function postAddRequest(){
-    if(isset($_REQUEST['title']) and isset($_REQUEST['chapo']) and isset($_FILES['fileToUpload'])and isset($_REQUEST['content']) and isset($_SESSION['user'])){
+    if(isset($_REQUEST['title']) and isset($_REQUEST['chapo']) and isset($_FILES['fileToUpload']) and isset($_REQUEST['content']) and isset($_SESSION['user'])){
       $title = $_REQUEST['title'];
       $chapo = $_REQUEST['chapo'];
       $thumbmail = $_FILES["fileToUpload"];
