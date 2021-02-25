@@ -126,11 +126,11 @@ h2 {
 }
 
 .containerBlock .errorMessage {
-  color : #fc4d3c;
+  color: #fc4d3c;
 }
 
 .containerBlock .successMessage {
-  color : #479860;
+  color: #479860;
 }
 
 .containerBlock form {
@@ -251,7 +251,7 @@ input:focus-visible {
 
 .containerTablePosts .author,
 .containerTablePosts .modif,
-.containerTablePosts .delete, 
+.containerTablePosts .delete,
 .containerTablePosts .validate,
 .containerTablePosts .id,
 .containerTablePosts .name,
