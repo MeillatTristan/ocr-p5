@@ -11,11 +11,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="public/assets/images/favicon/favicon.ico"/>
+  {% block script %}
+  
+  {% endblock %}
 </head>
 <body>
 {# header #}
   <header>
-    <nav>
+    <nav id="header">
       <input type="checkbox" id="check">
       <label for="check" class="checkbtn">
         <i class="fas fa-bars"></i>

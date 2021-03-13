@@ -12,21 +12,25 @@
   <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="public/assets/images/favicon/favicon.ico"/> 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="public\assets\js\sidebarAdmin.js"></script>
   {% block script %}
   {% endblock %}
 </head>
 <body>
-  <header>
+  <header id="sidebar">
     <h1>Administration</h1>
-    <ul class="sidebar">
+    <ul class="sidebar" >
       <li><a href="/portfolio/adminPosts"><i class="far fa-newspaper"></i> Articles</a></li>
       <li><a href="/portfolio/ManageCommentaire"><i class="far fa-comments"></i> Commentaires</a></li>
       <li><a href="/portfolio/ManageUsers"><i class="far fa-user"></i> Utilisateurs</a></li>
     </ul>
   </header>
-  <div class="containerGlobal">
+  <div class="containerGlobal" id="containerGlobal">
   <ul class="topbar">
-    <li class="return"><a href="/portfolio/"><i class="fas fa-reply"></i>  Retourner sur le site</a></li>
+    <div class="containerStart">
+      <li for="check" class="checkbtn" onclick="sidebarShow()"> <i class="fas fa-bars"></i> </li>
+      <li class="return"><a href="/portfolio/"><i class="fas fa-reply"></i>  Retourner sur le site</a></li>
+    </div>
     <li><a href="/portfolio/deconnexion"><i class="fas fa-sign-out-alt"></i>  Déconnexion</a></li>
   </ul>
     {% block body %}

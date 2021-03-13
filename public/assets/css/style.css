@@ -115,58 +115,10 @@ a:hover {
   display: none;
 }
 
-@media (max-width: 952px) {
-  label.logo {
-    font-size: 30px;
-    padding-left: 50px;
-  }
-
-  nav ul li a {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 858px) {
-  .checkbtn {
-    display: block;
-  }
-
-  ul {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #19191b;
-    top: 80px;
-    left: -100%;
-    text-align: center;
-    transition: all 0.5s;
-  }
-
-  nav ul li {
-    display: block;
-    margin: 50px 0;
-    line-height: 30px;
-  }
-
-  nav ul li a {
-    font-size: 20px;
-  }
-
-  a:hover,
-  a.active {
-    background: none;
-    color: white;
-  }
-
-  #check:checked ~ ul {
-    left: 0;
-  }
-}
-
 footer {
   border-top: #232325 solid 1px;
   position: relative;
-  z-index: 3;
+  z-index: 2;
 }
 
 footer .containerFooter {
@@ -296,6 +248,7 @@ footer .cardFooter a:hover {
 
 .containerHeaderHome .containerPictureProfil {
   width: 15%;
+  min-width: 173px;
   border-radius: 15%;
   overflow: hidden;
   background-color: rgba(25, 25, 27, 0.5);
@@ -347,7 +300,7 @@ footer .cardFooter a:hover {
 .containerDescription .about .title h2 {
   margin-top: -15px;
   margin-bottom: -10px;
-  font-size: 35px;
+  font-size: 2vw;
 }
 
 .containerDescription .about .containerContent {
@@ -356,7 +309,7 @@ footer .cardFooter a:hover {
 
 .containerDescription .about .containerContent p {
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 1.4vw;
 }
 
 .containerDescription .about p.cursive.pink {
@@ -407,7 +360,7 @@ footer .cardFooter a:hover {
 
 .containerDescription .competence h2 {
   margin-bottom: 20px;
-  font-size: 35px;
+  font-size: 2vw;
 }
 
 .containerDescription .competence .iconCompetence {
@@ -514,7 +467,7 @@ textarea {
 .containerSpace {
   height: 75vh;
   width: 100%;
-  z-index: -3;
+  z-index: 0;
   position: relative;
 }
 
@@ -791,4 +744,290 @@ h1 {
 
 .containerComments .comment .date {
   color: rgb(167, 167, 167);
+}
+
+@media only screen and (max-width: 1800px){
+  .containerPosts .postCard{
+    flex-direction: column;
+    height: auto;
+  }
+
+  .containerPosts .postCard .thumbnail{
+    width: 100%;
+    height: auto;
+  }
+
+  .containerPosts .postCard .containerText{
+    width: 100%;
+    padding-bottom: 100px;
+  }
+}
+
+@media only screen and (max-width: 1425px){
+  .containerForm form{
+    margin-top: 100px;
+    width: 50%;
+    min-width: 300px;
+  }
+
+  .containerForm h2{
+    margin: 40px 0px;
+  }
+
+  .containerBlock > *{
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .containerHeaderHome{
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    height: auto;
+  }
+
+  .containerHeaderHome .backgroundHeader{
+    background: #1c1c1e;
+  }
+
+  .containerHeaderHome .containerTitle h3 {
+    font-size: 5vw;
+  }
+  
+  .containerHeaderHome .containerTitle h1 {
+    font-size: 6vw;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  .containerHeaderHome .containerTitle h2 {
+    font-size: 5.5vw;
+    font-weight: 500;
+  }
+
+  .containerGlobal{
+    padding: 50px;
+  }
+
+  .containerDescription .about p.cursive.blue.first{
+    top: -20px;
+  }
+  
+  .containerDescription .about .title h2{
+    font-size: 3vw;
+  }
+
+  .containerDescription{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-top: 50px;
+  }
+
+  .containerDescription .about .containerContent p{
+    font-size: 17px;
+  }
+
+  .containerDescription h2{
+    font-size: 25px;
+  }
+
+  .containerDescription .about{
+    width: 90%;
+  }
+
+  .containerDescription .competence{
+    width: 90%;
+  }
+
+  .containerDescription .competence h2{
+    margin-top: 50px;
+    font-size: 30px;
+  }
+
+  footer .containerFooter .cardFooter img{
+    display: none;
+  }
+  
+  footer .containerFooter{
+    flex-wrap: wrap;
+    width: 95%;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  footer .cardFooter p{
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 952px) {
+  label.logo {
+    font-size: 30px;
+  }
+
+  nav ul li a {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 858px) {
+  .checkbtn {
+    display: block;
+  }
+
+  nav {
+    background-color: #1c1c1e;
+  }
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #1c1c1e;
+    top: 100px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  h1{
+    font-size: 30px;
+  }
+
+  .containerHeaderHome .containerPictureProfil {
+    min-width: 173px;
+  }
+
+  a:hover,
+  a.active {
+    background: none;
+    color: white;
+  }
+
+  #check:checked ~ ul {
+    left: 0;
+  }
+
+  .containerPosts .postCard{
+    width: 95%;
+  }
+
+  .containerPosts .postCard .title{
+    font-size: 23px;
+  }
+
+  .containerPosts .postCard .containerText{
+    margin: 30px;
+    width: 95%;
+  }
+
+  .containerPosts .postCard .info{
+    font-size: 13px;
+  }
+
+  .containerPosts .postCard .content{
+    font-size: 15px;
+  }
+
+  .containerPost .title{
+    font-size: 30px;
+  }
+
+  .containerPost .chapo{
+    font-size: 20px;
+  }
+
+  .containerPost .info{
+    font-size: 15px;
+    margin-bottom: 25px;
+  }
+
+  h2{
+    font-size: 30px;
+  }
+
+  .containerGlobal{
+    min-height: 90vh;
+  }
+
+  .containerSpace{
+    height: 50vh;
+    z-index: 0;
+  }
+
+  .containerFormConnexion{
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0;
+    height: auto;
+  }
+
+  .containerFormConnexion p{
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav .logo img{
+    max-height: 70px;
+    margin-left: 10px;
+  }
+
+  nav .logo{
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .containerGlobal{
+    padding: 40px;
+  }
+
+  .containerDescription .about .containerContent p{
+    font-size: 15px;
+  }
+
+  .containerDescription .competence .iconCompetence{
+    gap: 7%;
+  }
+
+  .containerDescription .competence .containerImg{
+    width: 110px;
+    height: 110px;
+  }
+
+  .containerDescription .competence .containerImg img{
+    width: 60px;
+    height: auto;
+  }
+
+  .containerDescription .about .cv .title .containerFile{
+    margin: 0;
+  }
+
+  .containerDescription .about .cv .title .containerFile a{
+    font-size: 25px;
+  }
+
+  .comments textarea{
+    height: 350px;
+  }
+
+  .comments input{
+    min-width: 100px;
+  }
 }

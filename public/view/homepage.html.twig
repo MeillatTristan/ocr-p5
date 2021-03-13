@@ -4,8 +4,8 @@
 
 {% block body %}
 
-<div class="containerHeaderHome">
-  <div class="backgroundHeader"></div>
+<div class="containerHeaderHome" id="containerHeaderHome">
+  <div class="backgroundHeader" id="backgroundHeader"></div>
   <div class="containerTitle">
     <h3>Hello !</h3>
     <h1>Je suis Tristan MEILLAT</h1>
@@ -76,7 +76,7 @@
     </div>
   </div>
   <div class="containerForm">
-    <form action="/portfolio/sendmail" method="post">
+    <form method="post">
       <h2>Me contacter</h2>
       <div class="containerName">
         <input type="text" name="nom" placeholder="Nom" required>

@@ -160,12 +160,7 @@ class FrontendController
             $dest = "tristan.meillat@sfr.fr";
             $sujet = "message de " . $nom . $prenom . $mail;
 
-            if (mail($dest, $sujet, $content, $headers)) {
-                echo "Email envoyé avec succès à $dest ...";
-            } else {
-                echo "Échec de l'envoi de l'email...";
-            }
-            return;
+            
         }
     }
 
