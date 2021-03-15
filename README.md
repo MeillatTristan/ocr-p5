@@ -7,7 +7,8 @@ Dans le cadre du projet 5 de la formation OpenClassrooms "Développeur d'applica
 
 ### Compte administrateur 
 
-email:password 
+email:password
+
 jean.dupont@gmail.com:Azerty1234!
 
 ### Fonctionnalités 
