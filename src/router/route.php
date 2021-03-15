@@ -2,28 +2,29 @@
 
 namespace App\router;
 
-use App\controller\homeController;
-
-
-class Route{
-
+/**
+ * create object of route
+ */
+class Route
+{
     public $path;
     private $callable;
 
-    public function __construct($path, $callable){
-
-
+    public function __construct($path, $callable)
+    {
         $this->path = trim($path, '/');
         $this->callable = $callable;
-
-
     }
 
-    public function match($url){
+    /**
+     * check if the current path match with the route and replace var
+     */
+    public function match($url)
+    {
         $url = trim($url, '/');
         $path = preg_replace_callback('#:([\w]+)#', [$this, 'paramMatch'], $this->path);
         $regex = "#^$path$#i";
-        if(!preg_match($regex, $url, $matches)){
+        if (!preg_match($regex, $url, $matches)) {
             return false;
         }
         array_shift($matches);
@@ -31,23 +32,23 @@ class Route{
         return true;
     }
     
-    private function paramMatch($match){
-        if(isset($this->params[$match[1]])){
+    /**
+     * check if params of path match with params callback
+     */
+    private function paramMatch($match)
+    {
+        if (isset($this->params[$match[1]])) {
             return '(' . $this->params[$match[1]] . ')';
         }
         return '([^/]+)';
     }
 
-    public function getUrl($params){
-        $path = $this->path;
-        foreach($params as $k => $v){
-            $path = str_replace(":$k", $v, $path);
-        }
-        return $path;
-    }
-
-    public function call(){
-        if(is_string($this->callable)){
+    /**
+     * return the callable of this route
+     */
+    public function call()
+    {
+        if (is_string($this->callable)) {
             $params = explode('#', $this->callable);
             $controller = "App\\Controller\\" . $params[0] . "Controller";
             $controller = new $controller();
@@ -57,11 +58,12 @@ class Route{
         }
     }
 
-    public function with($param, $regex){
+    /**
+     * contrain for the match : param is a regex
+     */
+    public function with($param, $regex)
+    {
         $this->params[$param] = str_replace('(', '(?:', $regex);
         return $this; // On retourne tjrs l'objet pour enchainer les arguments
     }
-
 }
-
-?>

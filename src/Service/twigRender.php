@@ -1,9 +1,12 @@
-<?php 
+<?php
 
 namespace App\Service;
 
 use Twig\Extra\String\StringExtension;
 
+/**
+ * initialize twig
+ */
 class TwigRender
 {
     private $twig;
@@ -13,6 +16,9 @@ class TwigRender
      *
      * @param string $view  lien de la vue
      * @param array  $prams données envoyer dans la vue
+     */
+    /**
+     * config the render twig
      */
     public function render($view, $prams = [])
     {

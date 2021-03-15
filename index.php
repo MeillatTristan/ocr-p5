@@ -5,18 +5,13 @@ require "vendor/autoload.php";
 use App\Router\Router;
 
 // init routing
-
 if (empty($_GET['url'])) {
     $_GET['url'] = '/';
 }
 
 $router = new Router($_GET['url']);
 
-
 // creating routes
-
-
-
 // routes frontend
 $router->get('/', 'Frontend#homepageView');
 $router->post('/sendmail', 'Frontend#sendmail');

@@ -5,7 +5,8 @@
         "twbs/bootstrap": "^4.6",
         "twig/string-extra": "^3.3",
         "phpcompatibility/php-compatibility": "*",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "friendsofphp/php-cs-fixer": "^2.18"
     },
     "authors": [
         {

@@ -1,19 +1,26 @@
-<?php 
+<?php
 
 namespace App\router;
 
 use App\Service\TwigRender;
 
-class RouterException{
+/**
+ * class call when an router have error
+ */
+class RouterException
+{
+    private $renderer;
 
-  private $renderer;    
+    public function __construct()
+    {
+        $this->renderer = new TwigRender();
+    }
 
-  public function __construct()
-  {
-    $this->renderer = new TwigRender();
-  }
-
-  public function error404(){
-    $this->renderer->render('404');
-  }
+    /**
+     * render the 404 pages
+     */
+    public function error404()
+    {
+        $this->renderer->render('404');
+    }
 }
