@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Service\TwigRender;
