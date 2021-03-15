@@ -3,7 +3,9 @@
     "require": {
         "twig/twig": "^3.2",
         "twbs/bootstrap": "^4.6",
-        "twig/string-extra": "^3.3"
+        "twig/string-extra": "^3.3",
+        "phpcompatibility/php-compatibility": "*",
+        "squizlabs/php_codesniffer": "*"
     },
     "authors": [
         {

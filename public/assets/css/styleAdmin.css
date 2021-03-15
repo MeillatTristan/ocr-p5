@@ -160,14 +160,13 @@ h2 {
 }
 
 .containerBlock form .thumbmail {
-  width: 35%;
   height: 400px;
 }
 
 .containerBlock form .thumbmail #containerPreview {
   background-color: #f5f5f5;
   border: #3e8ef7 2px solid;
-  width: 90%;
+  width: 450px;
   height: 300px;
   background-size: cover;
   box-shadow: 0 0 18px -7px rgba(0, 0, 0, 0.1);
@@ -380,6 +379,15 @@ input:focus-visible {
   }
 }
 
+@media only screen and (max-width: 1500px) {
+  .containerBlock form .containerFirstBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
+
 @media only screen and (max-width: 1100px) {
   header{
     transform: translateX(-280px);
@@ -437,6 +445,32 @@ input:focus-visible {
 
   p{
     font-size: 13px;
+  }
+
+  .containerBlock form textarea{
+    height: 300px;
+  }
+
+  .containerBlock form .thumbmail #containerPreview{
+    width: 300px;
+    height: 200px;
+  }
+
+  .containerBlock form .containerInput{
+    width: 100%;
+  }
+
+  .containerBlock form .containerInput input::placeholder,
+  .containerBlock input,
+  .containerBlock form textarea::placeholder,
+  .containerBlock form textarea{
+    font-size: 13px;
+  }
+
+  .containerBlock form .validate{
+    padding: 10px 5px;
+    width: 130px;
+    font-size: 15px;
   }
 }
 

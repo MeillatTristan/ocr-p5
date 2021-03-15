@@ -1,11 +1,13 @@
 <?php
 
+
 namespace App\Controller;
 
 use App\Service\TwigRender;
 use App\Manager\UsersManager;
 use App\Manager\PostsManager;
 use App\Manager\CommentsManager;
+
 
 class FrontendController
 {
