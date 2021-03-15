@@ -48,7 +48,8 @@ Créer une base donnée et importé le fichier portfolio.sql
 
 ### Etape 3 : 
 
-Editer le fichier de configuration de la base de donnée qui se trouve ici : ```src\Database\ConfigDatabase.php```
+Editer le fichier de configuration de la base de donnée qui se trouve ici : ```src\Config\config.exemple.php```
+Renommer ensuite le fichier ```config.exemple.php``` en ```config.php```
 
 ### Etape 4 : 
 
