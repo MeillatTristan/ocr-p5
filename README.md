@@ -1,6 +1,6 @@
 # ocr-p5
 
-## Contexte (titre + rappel projet + lien codacy (badge) )
+## Contexte
 [![SymfonyInsight](https://insight.symfony.com/projects/298b5fcf-0828-4207-b5ca-5c4696451c88/mini.svg)](https://insight.symfony.com/projects/298b5fcf-0828-4207-b5ca-5c4696451c88)
 
 Dans le cadre du projet 5 de la formation OpenClassrooms "Développeur d'application web" en spécialisation symfony, nous devions créer un blog personnel qui représentera notre portfolio.
@@ -53,6 +53,12 @@ Editer le fichier de configuration de la base de donnée qui se trouve ici : ```
 Renommer ensuite le fichier ```config.exemple.php``` en ```config.php```
 
 ### Etape 4 : 
+
+Editer le fichier de configuration de mailer qui se trouve ici : ```src\Config\configMail.exemple.php```
+
+Renommer ensuite le fichier ```configMail.exemple.php``` en ```configMail.php```
+
+### Etape 5 : 
 
 Pour finaliser l'installation du projet il va juste falloir installer les différentes dépendances à l'aide de composer et de cette commande :
 ```bash
