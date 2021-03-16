@@ -14,10 +14,9 @@ class Mailer
     public function __construct()
     {
         $data = require __DIR__ . './../Config/configMail.php';
-        var_dump($data);
         $this->mail = new PHPMailer();  // Cree un nouvel objet PHPMailer
         $this->mail->IsSMTP(); // active SMTP
-        $this->mail->SMTPDebug = 1;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
+        $this->mail->SMTPDebug = 0;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
         $this->mail->AuthType = "PLAIN";
         $this->mail->SMTPAuth = true;  // Authentification SMTP active
         $this->mail->SMTPSecure = 'ssl'; // Gmail REQUIERT Le transfert securise
