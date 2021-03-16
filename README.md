@@ -1,6 +1,6 @@
 # ocr-p5
 
-## Contexte (titre + rappel projet + lien codacy (badge) )
+## Contexte
 [![SymfonyInsight](https://insight.symfony.com/projects/298b5fcf-0828-4207-b5ca-5c4696451c88/mini.svg)](https://insight.symfony.com/projects/298b5fcf-0828-4207-b5ca-5c4696451c88)
 
 Dans le cadre du projet 5 de la formation OpenClassrooms "Développeur d'application web" en spécialisation symfony, nous devions créer un blog personnel qui représentera notre portfolio.
