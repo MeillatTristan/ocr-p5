@@ -6,7 +6,8 @@
         "twig/string-extra": "^3.3",
         "phpcompatibility/php-compatibility": "*",
         "squizlabs/php_codesniffer": "*",
-        "friendsofphp/php-cs-fixer": "^2.18"
+        "friendsofphp/php-cs-fixer": "^2.18",
+        "phpmailer/phpmailer": "^6.3"
     },
     "authors": [
         {
@@ -18,7 +19,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "src",
-            "Twig\\": "vendor/twig"
+            "Twig\\": "vendor/twig",
+            "PhpMailer\\": "vendor/phpmailer"
         }
     }
 }

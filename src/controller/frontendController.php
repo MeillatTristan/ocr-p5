@@ -6,6 +6,7 @@ use App\Service\TwigRender;
 use App\Manager\UsersManager;
 use App\Manager\PostsManager;
 use App\Manager\CommentsManager;
+use App\Service\Mailer;
 
 /**
  * Class FrontController controller for Frontend
@@ -15,7 +16,7 @@ class FrontendController
     private $renderer;
     private $usersManager;
     private $postsManager;
-
+    private $mailer;
     /**
      * Initailize method for frontend
      */
@@ -186,9 +187,9 @@ class FrontendController
             $mail = $_REQUEST['email'];
             $content = "mail :" . $mail . "<br> Phone : ". $phone . "<br> Message : " .$_REQUEST['message'];
 
-            $headers = "From: tristan.meillat28@gmail.com";
-            $dest = "tristan.meillat@sfr.fr";
-            $sujet = "message de " . $nom . $prenom . $mail;
+            $this->mailer = new Mailer;
+            $this->mailer->sendMail('tristan.meillat28@gmail.com', 'tristan.meillat28@gmail.com', $nom . " " . $prenom, $content, "Message de $nom" . " " . "$prenom");
+            header('Location: /portfolio/');
         }
     }
 
