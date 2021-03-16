@@ -54,6 +54,12 @@ Renommer ensuite le fichier ```config.exemple.php``` en ```config.php```
 
 ### Etape 4 : 
 
+Editer le fichier de configuration de mailer qui se trouve ici : ```src\Config\configMail.exemple.php```
+
+Renommer ensuite le fichier ```configMail.exemple.php``` en ```configMail.php```
+
+### Etape 5 : 
+
 Pour finaliser l'installation du projet il va juste falloir installer les différentes dépendances à l'aide de composer et de cette commande :
 ```bash
 composer install
