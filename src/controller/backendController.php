@@ -63,8 +63,15 @@ class BackendController
                 unset($_SESSION['successMessage']);
                 $this->renderer->render('adminPostForm', ["successMessage" => $successMessage, "class" => "errorMessage"]);
             }
+            elseif ($_SESSION['successMessage'] == "uniqueTitle") {
+                $successMessage = 'Ce titre est déjà utilisé, merci de le changer.';
+                unset($_SESSION['successMessage']);
+                $this->renderer->render('adminPostForm', ["successMessage" => $successMessage, "class" => "errorMessage"]);
+            }
         }
-        $this->renderer->render('adminPostForm');
+        else{
+            $this->renderer->render('adminPostForm');
+        }
     }
 
     /**
@@ -87,12 +94,14 @@ class BackendController
             if ($return == "y") {
                 $_SESSION['successMessage'] = "y";
             }
-
-            $_SESSION['successMessage'] = "n";
-
+            elseif ($return == "uniqueTitle") {
+                $_SESSION['successMessage'] = "uniqueTitle";
+            }
+            else{
+                $_SESSION['successMessage'] = "n";
+            }
             header("Location: /portfolio/adminPostForm");
         }
-        header("Location: /portfolio/");
     }
 
     /**

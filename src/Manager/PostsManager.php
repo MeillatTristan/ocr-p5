@@ -34,6 +34,12 @@ class PostsManager
             return('n');
         }
 
+        $posts = $this->getPosts();
+        foreach($posts as $post){
+            if($post->title  == $title){
+                return('uniqueTitle');
+            }
+        }
 
         $request = $this->database->prepare("INSERT INTO posts (title, thumbnail, description, chapo, author, lastMaj, dateCreation) VALUES (:title, :thumbnail, :description, :chapo, :author, :lastMaj, :dateCreation)");
         $params = [':title' => $title, ':thumbnail' => $thumbnail['name'], ':description' => $description, ':chapo' => $chapo, ':author' => $author, ':lastMaj' => $date, ':dateCreation' => $date];
@@ -105,7 +111,8 @@ class PostsManager
     {
         $request = $this->database->prepare("DELETE FROM posts WHERE id=:id");
         $params = [':id' => $idPost];
-        if ($request->execute($params)) {
+        $requestCom = $this->database->prepare("DELETE FROM comments WHERE idPost=:id");
+        if ($request->execute($params) && $requestCom->execute($params)) {
             return('y');
         }
         return('n');
